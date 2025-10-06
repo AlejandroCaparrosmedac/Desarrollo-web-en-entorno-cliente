@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea 1/Tema 3</title>
+</head>
+<body>
+    <script>
+        //Declaración de variables
+        var numero = 5;
+        var cadena = "Hola";
+        var booleano = true;
+        var nula = null;
+        var noDefinida;
+        //Console.log para ver en la consola el tipo de cada variable creada.
+        console.log("Tipo numero: " + typeof(numero));
+        console.log("Tipo cadena: " + typeof(cadena));
+        console.log("Tipo booleano: " + typeof(booleano));
+        console.log("Tipo nulo:" + nula);
+        console.log("Tipo no definido: " + typeof(noDefinida));
+        //Conversión de tipos
+        numeroCadena = String(123); //Convierte los valores númericos dentro del paréntesis en tipo string
+        cadenaNumero = Number("123"); //Convierte el texto dentro del paréntesis en valores númericos
+        cadenaVacia = Number(""); //Al tener la cadena vacía la convierte en un 0
+        booleano1 = Boolean(1); //Convierte el valor númerico a su equivalente en booleano, es decir, en False (El 0 es False y el resto es True)
+        booleano2 =  Boolean("texto"); //Convierte el texto a su equivalente en booleano, es decir, en True (El texto lleno es True y el texto vacio es False)
+        //Console.loh para mostrar las conversiones por consola.
+        console.log("Conversión de número a cadena: " + numeroCadena, typeof(numeroCadena));
+        console.log("Conversión de cadena a número: " + cadenaNumero, typeof(cadenaNumero));
+        console.log("Conversión de texto vacio a número: " + cadenaVacia, typeof(cadenaVacia));
+        console.log("Conversión de número a booleano: " + booleano1, typeof(booleano1));
+        console.log("Conversión de texto a booleano: " + booleano2, typeof(booleano2));
+    </script>
+</body>
+</html>

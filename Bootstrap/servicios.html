@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - GamingChair</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-laptop-code me-2"></i>GamingChair</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nosotros.html">Quienes somos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="servicios.html">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+                <button class="btn btn-outline-light" data-bs-toggle="modal"
+                    data-bs-target="#contactModal">Contactar</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section for Services -->
+    <section class="bg-warning text-white py-5" style="margin-top: 56px;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold">Nuestros Servicios</h1>
+                    <p class="lead">Soluciones tecnológicas completas para hacer crecer tu negocio</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark px-3 py-2">+10 Años de Experiencia</span>
+                        <span class="badge bg-light text-dark px-3 py-2">24/7 Soporte</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <i class="fas fa-cogs fa-10x opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Servicios</li>
+            </ol>
+        </nav>
+
+        <!-- Services Overview Cards -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-header bg-gradient bg-primary text-white text-center py-4">
+                            <i class="fas fa-desktop fa-4x mb-3"></i>
+                            <h4 class="card-title mb-0">Montaje de Ordenadores</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Te ayudamos a montar tu ordenador.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Piezas nuevas</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Garantía de 3 años</li>
+                                <li><i class="fas fa-check text-success me-2"></i>A tu propio gusto</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#webDevModal">
+                                    Ver Detalles <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-header bg-gradient bg-success text-white text-center py-4">
+                            <i class="fas fa-screwdriver-wrench fa-4x mb-3"></i>
+                            <h4 class="card-title mb-0">Servicio de reparaciones</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Reparamos tanto ordenadores como dispositivos telefónicos.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Reparaciones en un máximo de 72h</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Garantia de 1 año tras la reparacion
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mobileDevModal">
+                                    Ver Detalles <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-header bg-gradient bg-danger text-light text-center py-4">
+                            <i class="fas fa-headset fa-4x mb-3"></i>
+                            <h4 class="card-title mb-0">Soporte técnico remoto</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Te ayudamos a solucionar cualquier problema técnico que encuentres en
+                                el equipo.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Servicio 24 horas</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Solución asegurada</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cloudModal">
+                                    Ver Detalles <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-header bg-gradient bg-info text-white text-center py-4">
+                            <i class="fas fa-truck fa-4x mb-3"></i>
+                            <h4 class="card-title mb-0">Envios y entregas</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Contamos con diferentes tipos de envios para adaptarnos a tus
+                                necesidades.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Envío rápido</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Envío estandar</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Envío VIP</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#securityModal">
+                                    Ver Detalles <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-lg">
+                        <div class="card-header bg-gradient bg-dark text-white text-center py-4">
+                            <i class="fas fa-boxes-stacked fa-4x mb-3"></i>
+                            <h4 class="card-title mb-0">Alquiler de equipos</h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Alquilamos nuestros equipos para eventos.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Equipos de diferentes gamas</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Periféricos incluidos</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Revisados antes de enviar</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-grid">
+                                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#aiModal">
+                                    Ver Detalles <i class="fas fa-arrow-right ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Testimonials Carousel -->
+        <section class="mb-5">
+            <h2 class="text-center mb-5">Lo que Dicen Nuestros Clientes</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body text-center py-5">
+                                <i class="fas fa-quote-left fa-3x text-primary mb-3"></i>
+                                <p class="lead">"10/10"</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="https://via.placeholder.com/60x60" class="rounded-circle me-3"
+                                        alt="Cliente">
+                                    <div>
+                                        <h6 class="mb-0">María González</h6>
+                                        <small class="text-muted">CEO, StartupTech</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body text-center py-5">
+                                <i class="fas fa-quote-left fa-3x text-success mb-3"></i>
+                                <p class="lead">"Los equipos de GamingChair son de la mayor calidad."</p>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <img src="https://via.placeholder.com/60x60" class="rounded-circle me-3"
+                                        alt="Cliente">
+                                    <div>
+                                        <h6 class="mb-0">Carlos Ruiz</h6>
+                                        <small class="text-muted">Director, EcommercePlus</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev bg-dark" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next bg-dark" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="bg-warning text-white rounded p-5 text-center">
+            <h2>¿Listo para Comenzar tu Proyecto?</h2>
+            <p class="lead">Contacta con nosotros hoy mismo y recibe una consulta gratuita</p>
+            <button class="btn btn-light btn-lg me-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+                <i class="fas fa-phone me-2"></i>Contactar Ahora
+            </button>
+            <button class="btn btn-outline-dark btn-lg">
+                <i class="fas fa-calendar me-2"></i>Agendar Reunión
+            </button>
+            <button type="button" class="btn btn-outline-dark btn-lg" id="liveToastBtn">Hable con nuestra IA</button>
+
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="https://web.whatsapp.com/favicon-64x64.ico" class="rounded me-2" alt="...">
+                        <strong class="me-auto">GamingChairIA</strong>
+                        <small>1 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body text-dark">
+                        Bienvenido a GamingChair, ¿cómo puedo ayudarle?.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="fas fa-envelope me-2"></i>Contactar con GamingChair</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" placeholder="Tu nombre">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Teléfono</label>
+                                <input type="tel" class="form-control" placeholder="+34 123 456 789">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Servicio de Interés</label>
+                                <select class="form-select">
+                                    <option selected>Selecciona un servicio</option>
+                                    <option value="web">Montaje de ordenadores</option>
+                                    <option value="mobile">Servicio de reparaciones</option>
+                                    <option value="cloud">Soporte técnico remoto</option>
+                                    <option value="security">Envios y entregas</option>
+                                    <option value="ai">Alquiler de equipos</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mensaje</label>
+                            <textarea class="form-control" rows="4"
+                                placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terms">
+                            <label class="form-check-label" for="terms">
+                                Acepto los términos y condiciones y la política de privacidad
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Detail Modals -->
+    <!-- Montaje Modal -->
+    <div class="modal fade" id="webDevModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="fas fa-desktop me-2"></i>Montaje de ordenadores</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h6>Elige las marcas y modelos que desee:</h6>
+
+                            <p>Ofrecemos todo tipo de componentes y marcas, para adaptarnos a los gustos del cliente.
+                            </p>
+                            <ul>
+                                <li>Nvidia</li>
+                                <li>AMD</li>
+                                <li>Intel</li>
+                                <li>Y mucho más</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-light p-3 rounded">
+                                <h6>Precios desde:</h6>
+                                <h4 class="text-primary">€350</h4>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Comenzar selección</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reparaciones Modal -->
+    <div class="modal fade" id="mobileDevModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="fas fa-screwdriver-wrench me-2"></i>Servicio de reparaciones</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h6>Plataformas y Tecnologías:</h6>
+                            <p>En GamingChair, reparamos ordenadores de sobremesa, portatiles, móviles, tablets, incluso
+                                reacondicionamos componentes.</p>
+                            <ul>
+                                <li>Cualquier tipo de producto</li>
+                                <li>Reparación de productos Apple</li>
+                                <li>Incluye trabajos de mantenimiento</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-light p-3 rounded">
+                                <h6>Precios desde:</h6>
+                                <h4 class="text-success">€100</h4>
+                                <hr>
+                                <h6>Tiempo de entrega:</h6>
+                                <p>24-72 horas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Solicitar Presupuesto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add other modals for remaining services... -->
+    <!-- Soporte Técnico Modal -->
+    <div class="modal fade" id="cloudModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-light">
+                    <h5 class="modal-title"><i class="fas fa-headset me-2"></i>Servicio técnico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Mediante aplicaciones de escritorio remoto o simplemente desde una llamada, le guiaremos para
+                        solucionar sus problemas técnicos.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger">Solicitar Presupuesto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Envios Modal -->
+    <div class="modal fade" id="securityModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title"><i class="fas fa-truck me-2"></i>Envios y entregas</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Contamos con tres tipos de envios, los cuales tienen diferente coste y periodo de entrega.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-info">Solicitar Presupuesto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alquiler Modal -->
+    <div class="modal fade" id="aiModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title"><i class="fas fa-boxes-stacked me-2"></i>Alquiler de equipos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Montamos equipos y los alquilamos a eventos, tanto eventos de tipo gaming, como a eventos
+                        corporativos.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-dark">Solicitar Presupuesto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-laptop-code me-2"></i>GamingChair</h5>
+                    <p class="text-light">Tu tienda de confianza</p>
+                </div>
+                <div class="col-md-3">
+                    <h6>Enlaces</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="contacto.html" class="text-light text-decoration-none">Contacto</a></li>
+                        <li><a href="" class="text-light text-decoration-none">Política de Privacidad</a></li>
+                        <li><a href="" class="text-light text-decoration-none">Aviso Legal</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6>Síguenos</h6>
+                    <a href="#" class="text-light me-2"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-light me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+            <hr class="my-3">
+            <div class="text-center">
+                <small>&copy; 2025 GamingChair. Todos los derechos reservados.</small>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Obtiene una referencia al botón y al toast por sus IDs
+        var toastTrigger = document.getElementById('liveToastBtn');
+        var toastLiveExample = document.getElementById('liveToast');
+
+        if (toastTrigger) {
+            // Agrega un "escuchador" de eventos para el clic del botón
+            toastTrigger.addEventListener('click', function () {
+                // Crea una nueva instancia del objeto Toast
+                var toast = new bootstrap.Toast(toastLiveExample);
+
+                // Muestra el toast
+                toast.show();
+            });
+        }
+    </script>
+</body>
+
+</html>
