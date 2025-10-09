@@ -113,7 +113,7 @@
         //Función for con texto
         function forTexto() {
             let valor1 = getNumero1();
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle for (Texto):<br></b>`;
             for (i = 1; i <= valor1; i++) {
                 resultado.innerHTML += `${i}<br>`;
             }
@@ -122,7 +122,7 @@
         function whileTexto() {
             let valor1 = getNumero1();
             let contador = 0;
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle while (Texto):<br></b>`;
             while (contador < valor1) {
                 contador++;
                 resultado.innerHTML += `${contador}<br>`
@@ -132,7 +132,7 @@
         function doTexto() {
             let valor1 = getNumero1();
             let contador = 0;
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle do... while (Texto):<br></b>`;
             do {
                 contador++;
                 resultado.innerHTML += `${contador}<br>`
@@ -141,29 +141,29 @@
         //Función for con badges
         function forBadge() {
             let valor1 = getNumero1();
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle for (Badges):<br></b>`;
             for (i = 1; i <= valor1; i++) {
-                resultado.innerHTML += ` <span class="badge text-bg-secondary">${i}</span>`;
+                resultado.innerHTML += ` <span class="badge text-bg-warning">${i}</span>`;
             }
         }
         //Función while con badges
         function whileBadge() {
             let valor1 = getNumero1();
             let contador = 0;
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle while (Badges):<br></b>`;
             while (contador < valor1) {
                 contador++;
-                resultado.innerHTML += ` <span class="badge text-bg-secondary">${contador}</span>`;
+                resultado.innerHTML += ` <span class="badge text-bg-warning">${contador}</span>`;
             }
         }
         //Función do...while con badges
         function doBadge() {
             let valor1 = getNumero1();
             let contador = 0;
-            resultado.innerHTML = ``;
+            resultado.innerHTML = `<b>Bucle do...while (Badges):<br></b>`;
             do {
                 contador++;
-                resultado.innerHTML += ` <span class="badge text-bg-secondary"> ${contador} </span> `;
+                resultado.innerHTML += ` <span class="badge text-bg-warning"> ${contador} </span> `;
             } while (contador < valor1);
         }
     </script>
