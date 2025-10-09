@@ -1,37 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Bootstrap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </head>
-<body>
+
+<body class="bg-dark">
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center text-light">
             <h1>Cálculadora con Bootstrap</h1>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p>Número 1: </p>
-                <input type="float" name="numero1">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="numero1" class="form-label">Número 1:</label>
+                <input type="number" id="numero1" class="form-control" placeholder="Introduce el primer número">
             </div>
-            <div class="col-sm-6">
-                <p>Número 2:</p>
-                <input type="float" name="numero2">
-            </div>
-            <div class="row">
-                <div class="col">
-                <a href=""><button type="button" class="btn btn-primary">Sumar</button></a>
-                <a href=""><button type="button" class="btn btn-primary">Restar</button></a>
-                <a href=""><button type="button" class="btn btn-primary">Multiplicar</button></a>
-                <a href=""><button type="button" class="btn btn-primary">Dividir</button></a>
-                <a href=""><button type="button" class="btn btn-primary">Potencia</button></a>
-                <a href=""><button type="button" class="btn btn-primary">Módulo</button></a>
-                </div>
+            <div class="col-md-6">
+                <label for="numero2" class="form-label">Número 2:</label>
+                <input type="number" id="numero2" class="form-control" placeholder="Introduce el primer número">
             </div>
         </div>
+        <div class="row">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
+                <button type="button" class="btn btn-primary" onclick="restar()">Restar</button>
+                <button type="button" class="btn btn-primary" onclick="multiplicar()">Multiplicar</button>
+                <button type="button" class="btn btn-primary" onclick="dividir()">Dividir</button>
+                <button type="button" class="btn btn-primary" onclick="potencia()">Potencia</button>
+                <button type="button" class="btn btn-primary" onclick="modulo()">Módulo</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <button type="button" class="btn btn-primary" onclick="forTexto()">For (Texto)</button>
+                <button type="button" class="btn btn-primary" onclick="whileTexto()">While (Texto)</button>
+                <button type="button" class="btn btn-primary" onclick="doTexto()">Do...While (Texto)</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <button type="button" class="btn btn-primary" onclick="forBadge()">For (Badges)</button>
+                <button type="button" class="btn btn-primary" onclick="whileBadge()">While (Badges)</button>
+                <button type="button" class="btn btn-primary" onclick="doBadge()">Do...While (Badges)</button>
+            </div>
+        </div>
+        <div class="alert alert-info" id="resultado">Resultado</div>
+
     </div>
+    <script>
+        const resultado = document.getElementById("resultado");
+
+        function getNumero1() {
+            return Number(document.getElementById("numero1").value) || 0;
+        }
+
+        function getNumero2() {
+            return Number(document.getElementById("numero2").value) || 0;
+        }
+        //Función para calcular la suma de dos números
+        function sumar() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            let res = valor1 + valor2;
+            resultado.innerHTML = `<strong>Resultado de la suma:</strong> ${res}`;
+        }
+        //Función para calcular la resta de dos números
+        function restar() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            let res = valor1 - valor2;
+            resultado.innerHTML = `El resultado de la resta es: ${res}`
+        }
+        //Función para calcular la multiplicación de dos números
+        function multiplicar() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            let res = valor1 * valor2;
+            resultado.innerHTML = `El resultado de la multiplicación es: ${res}`
+        }
+        //Función para dividir
+        function dividir() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            if (valor2 == 0) {
+                resultado.innerHTML = "Error. Indeterminación k/0"
+            } else {
+                let res = valor1 / valor2;
+                resultado.innerHTML = `El resultado de la división es: ${res}`
+            }
+        }
+        //Función para calcular la potencia de un número elevado a otro
+        function potencia() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            let res = valor1 ** valor2;
+            resultado.innerHTML = `El resultado de la potencia es: ${res}`
+        }
+        //Función para calcular el módulo
+        function modulo() {
+            let valor1 = getNumero1();
+            let valor2 = getNumero2();
+            let res = valor1 % valor2;
+            resultado.innerHTML = `El resultado del módulo es: ${res}`
+        }
+        //Función for con texto
+        function forTexto() {
+            let valor1 = getNumero1();
+            resultado.innerHTML = ``;
+            for (i = 1; i <= valor1; i++) {
+                resultado.innerHTML += `${i}<br>`;
+            }
+        }
+        //Función while con texto
+        function whileTexto() {
+            let valor1 = getNumero1();
+            let contador = 0;
+            resultado.innerHTML = ``;
+            while (contador < valor1) {
+                contador++;
+                resultado.innerHTML += `${contador}<br>`
+            }
+        }
+        //Función do...while con texto
+        function doTexto() {
+            let valor1 = getNumero1();
+            let contador = 0;
+            resultado.innerHTML = ``;
+            do {
+                contador++;
+                resultado.innerHTML += `${contador}<br>`
+            } while (contador < valor1);
+        }
+        //Función for con badges
+        function forBadge() {
+            let valor1 = getNumero1();
+            resultado.innerHTML = ``;
+            for (i = 1; i <= valor1; i++) {
+                resultado.innerHTML += `<span class="badge text-bg-secondary">${i}</span>`;
+            }
+        }
+        //Función while con badges
+        function whileBadge() {
+            let valor1 = getNumero1();
+            let contador = 0;
+            resultado.innerHTML = ``;
+            while (contador < valor1) {
+                contador++;
+                resultado.innerHTML += `<span class="badge text-bg-secondary">${contador}</span>`;
+            }
+        }
+        //Función do...while con badges
+        function doBadge() {
+            let valor1 = getNumero1();
+            let contador = 0;
+            resultado.innerHTML = ``;
+            do {
+                contador++;
+                resultado.innerHTML += `<span class="badge text-bg-secondary">${contador}</span>`;
+            } while (contador < valor1);
+        }
+    </script>
 </body>
+
 </html>
