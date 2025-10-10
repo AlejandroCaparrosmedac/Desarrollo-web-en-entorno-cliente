@@ -37,7 +37,7 @@
                 <button type="button" class="btn btn-primary" onclick="potencia()">Potencia</button>
                 <button type="button" class="btn btn-primary" onclick="modulo()">Módulo</button>
                 <button type="button" class="btn btn-primary" onclick="raiz()">Raiz cuadrada</button>
-
+                <button type="button" class="btn btn-primary" onclick="logaritmo()">Ln</button>
             </div>
         </div>
         <!-- Botones de bucles con texto -->
@@ -124,8 +124,13 @@
         //Función para calcular el logaritmo neperiano
         function logaritmo() {
             let valor1 = getNumero1();
-            let res = Math.log(valor1);
-            resultado.innerHTML = `El resultado del logaritmo es: ${res}`
+            if (valor1 <= 0) {
+                resultado.innerHTML = "Error. El logaritmo no está definido para números menores o iguales a 0."
+                
+            }else{
+                let res = Math.log(valor1);
+                resultado.innerHTML = `El resultado del logaritmo es: ${res}`
+        }
         }
         //Función for con texto
         function forTexto() {
