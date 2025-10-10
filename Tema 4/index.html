@@ -115,11 +115,17 @@
             let res = valor1 % valor2;
             resultado.innerHTML = `El resultado del módulo es: ${res}`
         }
-
+        //Función para calcular la raíz cuadrada
         function raiz(){
             let valor1 = getNumero1();
             let res = Math.sqrt(valor1);
-            resultado.innerHTML = `El resultado es la raiz es: ${res}`
+            resultado.innerHTML = `El resultado es la raíz es: ${res}`
+        }
+        //Función para calcular el logaritmo neperiano
+        function logaritmo() {
+            let valor1 = getNumero1();
+            let res = Math.log(valor1);
+            resultado.innerHTML = `El resultado del logaritmo es: ${res}`
         }
         //Función for con texto
         function forTexto() {
