@@ -17,6 +17,9 @@ Proyecto de una tienda de componentes informáticos usando Bootstrap 5, que incl
   - Operaciones básicas (suma, resta, multiplicación, división)
   - Operaciones avanzadas (potencia, módulo, raíz cuadrada, logaritmo)
   - Ejemplos de bucles (for, while, do-while) con texto y badges
+    - Cada bucle procesa tanto el primer como el segundo número ingresado
+    - Muestra resultados separados para cada valor
+    - Visualización en formato texto y badges de Bootstrap
 
 ### Tarea Variables, Tipos de Datos y Conversiones
 - `Tarea 1- tema 3, Alejandro Caparrós Capilla.html`: Ejercicios de variables y conversiones en JavaScript

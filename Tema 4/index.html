@@ -132,61 +132,99 @@
                 resultado.innerHTML = `El resultado del logaritmo es: ${res}`
         }
         }
-        //Función for con texto
+        //Función for con texto para ambos valores
         function forTexto() {
             let valor1 = getNumero1();
-            resultado.innerHTML = `<b>Bucle for (Texto):<br></b>`;
+            let valor2 = getNumero2();
+            resultado.innerHTML = `<b>Bucle for para el primer valor (Texto):<br></b>`;
             for (i = 1; i <= valor1; i++) {
                 resultado.innerHTML += `${i}<br>`;
             }
+            resultado.innerHTML += `<br><b>Bucle for para el segundo valor (Texto):<br></b>`;
+            for (i = 1; i <= valor2; i++) {
+                resultado.innerHTML += `${i}<br>`;
+            }
         }
-        //Función while con texto
+        //Función while con texto para ambos valores
         function whileTexto() {
             let valor1 = getNumero1();
+            let valor2 = getNumero2();
             let contador = 0;
-            resultado.innerHTML = `<b>Bucle while (Texto):<br></b>`;
+            resultado.innerHTML = `<b>Bucle while para el primer valor (Texto):<br></b>`;
             while (contador < valor1) {
                 contador++;
                 resultado.innerHTML += `${contador}<br>`
             }
+            contador = 0;
+            resultado.innerHTML += `<br><b>Bucle while para el segundo valor (Texto):<br></b>`;
+            while (contador < valor2) {
+                contador++;
+                resultado.innerHTML += `${contador}<br>`
+            }
         }
-        //Función do...while con texto
+        //Función do...while con texto para ambos valores
         function doTexto() {
             let valor1 = getNumero1();
+            let valor2 = getNumero2();
             let contador = 0;
-            resultado.innerHTML = `<b>Bucle do... while (Texto):<br></b>`;
+            resultado.innerHTML = `<b>Bucle do...while para el primer valor (Texto):<br></b>`;
             do {
                 contador++;
                 resultado.innerHTML += `${contador}<br>`
             } while (contador < valor1);
+            contador = 0;
+            resultado.innerHTML += `<br><b>Bucle do...while para el segundo valor (Texto):<br></b>`;
+            do {
+                contador++;
+                resultado.innerHTML += `${contador}<br>`
+            } while (contador < valor2);
         }
-        //Función for con badges
+        //Función for con badges para ambos valores
         function forBadge() {
             let valor1 = getNumero1();
-            resultado.innerHTML = `<b>Bucle for (Badges):<br></b>`;
+            let valor2 = getNumero2();
+            resultado.innerHTML = `<b>Bucle for para el primer valor (Badges):<br></b>`;
             for (i = 1; i <= valor1; i++) {
                 resultado.innerHTML += ` <span class="badge text-bg-warning">${i}</span>`;
             }
+            resultado.innerHTML += `<br><br><b>Bucle for para el segundo valor (Badges):<br></b>`;
+            for (i = 1; i <= valor2; i++) {
+                resultado.innerHTML += ` <span class="badge text-bg-warning">${i}</span>`;
+            }
         }
-        //Función while con badges
+        //Función while con badges para ambos valores
         function whileBadge() {
             let valor1 = getNumero1();
+            let valor2 = getNumero2();
             let contador = 0;
-            resultado.innerHTML = `<b>Bucle while (Badges):<br></b>`;
+            resultado.innerHTML = `<b>Bucle while para el primer valor (Badges):<br></b>`;
             while (contador < valor1) {
                 contador++;
                 resultado.innerHTML += ` <span class="badge text-bg-warning">${contador}</span>`;
             }
+            contador = 0;
+            resultado.innerHTML += `<br><br><b>Bucle while para el segundo valor (Badges):<br></b>`;
+            while (contador < valor2) {
+                contador++;
+                resultado.innerHTML += ` <span class="badge text-bg-warning">${contador}</span>`;
+            }
         }
-        //Función do...while con badges
+        //Función do...while con badges para ambos valores
         function doBadge() {
             let valor1 = getNumero1();
+            let valor2 = getNumero2();
             let contador = 0;
-            resultado.innerHTML = `<b>Bucle do...while (Badges):<br></b>`;
+            resultado.innerHTML = `<b>Bucle do...while para el primer valor (Badges):<br></b>`;
             do {
                 contador++;
                 resultado.innerHTML += ` <span class="badge text-bg-warning"> ${contador} </span> `;
             } while (contador < valor1);
+            contador = 0;
+            resultado.innerHTML += `<br><br><b>Bucle do...while para el segundo valor (Badges):<br></b>`;
+            do {
+                contador++;
+                resultado.innerHTML += ` <span class="badge text-bg-warning"> ${contador} </span> `;
+            } while (contador < valor2);
         }
     </script>
 </body>
