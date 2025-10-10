@@ -27,6 +27,7 @@
                 <input type="number" id="numero2" class="form-control" placeholder="Introduce el segundo número">
             </div>
         </div>
+        <!-- Botones de operaciones -->
         <div class="row">
             <div class="d-flex flex-wrap gap-2 mb-3">
                 <button type="button" class="btn btn-primary" onclick="sumar()">Sumar</button>
@@ -35,8 +36,11 @@
                 <button type="button" class="btn btn-primary" onclick="dividir()">Dividir</button>
                 <button type="button" class="btn btn-primary" onclick="potencia()">Potencia</button>
                 <button type="button" class="btn btn-primary" onclick="modulo()">Módulo</button>
+                <button type="button" class="btn btn-primary" onclick="raiz()">Raiz cuadrada</button>
+
             </div>
         </div>
+        <!-- Botones de bucles con texto -->
         <div class="row">
             <div class="d-flex flex-wrap gap-2 mb-3">
                 <button type="button" class="btn btn-warning" onclick="forTexto()">For (Texto)</button>
@@ -44,6 +48,7 @@
                 <button type="button" class="btn btn-warning" onclick="doTexto()">Do...While (Texto)</button>
             </div>
         </div>
+        <!-- Botones con bucles con badges -->
         <div class="row">
             <div class="d-flex flex-wrap gap-2 mb-3">
                 <button type="button" class="btn btn-danger" onclick="forBadge()">For (Badges)</button>
@@ -109,6 +114,12 @@
             let valor2 = getNumero2();
             let res = valor1 % valor2;
             resultado.innerHTML = `El resultado del módulo es: ${res}`
+        }
+
+        function raiz(){
+            let valor1 = getNumero1();
+            let res = Math.sqrt(valor1);
+            resultado.innerHTML = `El resultado es la raiz es: ${res}`
         }
         //Función for con texto
         function forTexto() {
