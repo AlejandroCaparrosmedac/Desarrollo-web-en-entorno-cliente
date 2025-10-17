@@ -63,10 +63,10 @@ btnRemove.addEventListener('click', function eliminarParrafo() {
     if (parrafos.length > 0) {
         const ultimoParrafo = parrafos[parrafos.length - 1];
         contenido.removeChild(ultimoParrafo);
-    }else{
-         alert('No hay más párrafos para eliminar');
+    } else {
+        alert('No hay más párrafos para eliminar');
     }
-});  
+});
 
 /* ==========================================
    TODO: Ejercicio 3 – Eventos de ratón (hover)
@@ -74,20 +74,20 @@ btnRemove.addEventListener('click', function eliminarParrafo() {
 
 // TODO: 1. Crear función para cuando entra el ratón
 //         - Cambiar backgroundColor a '#e7f5ff'
- function entrarRaton(event) {
-     event.target.style.backgroundColor = '#e7f5ff';
- };
+function entrarRaton(event) {
+    event.target.style.backgroundColor = '#e7f5ff';
+};
 // TODO: 2. Crear función para cuando sale el ratón
 //         - Restaurar backgroundColor a ''
- function salirRaton(event) {
-     event.target.style.backgroundColor = '';
- };
+function salirRaton(event) {
+    event.target.style.backgroundColor = '';
+};
 // TODO: 3. Crear función para aplicar eventos hover a un párrafo
 //         - Usar addEventListener para 'mouseover' y 'mouseout'
- function aplicarHover(parrafo) {
-     parrafo.addEventListener('mouseover', entrarRaton);
-     parrafo.addEventListener('mouseout', salirRaton);
- };
+function aplicarHover(parrafo) {
+    parrafo.addEventListener('mouseover', entrarRaton);
+    parrafo.addEventListener('mouseout', salirRaton);
+};
 // TODO: 4. Aplicar hover a todos los párrafos existentes inicialmente
 const parrafosIniciales = contenido.querySelectorAll('p');
 parrafosIniciales.forEach(parrafo => {
@@ -99,29 +99,63 @@ parrafosIniciales.forEach(parrafo => {
    ====================================================== */
 
 // TODO: 1. Seleccionar elementos: input (#nuevoTexto), botón (#btn-cambiar), mensaje error (#msg-ej4)
+const inputNuevoTexto = document.getElementById('nuevoTexto');
+const btnCambiar = document.getElementById('btn-cambiar');
+const msgError = document.getElementById('msg-ej4');
+
 
 // TODO: 2. Crear función para el botón "Cambiar texto"
 //         - Obtener valor del input (usar .trim())
 //         - Si está vacío: mostrar mensaje error, enfocar input
 //         - Si tiene texto: ocultar error, cambiar texto del primer párrafo
-
+btnCambiar.addEventListener('click', function cambiarTexto() {
+    const nuevoTexto = inputNuevoTexto.value.trim();
+    if (nuevoTexto === '') {
+        msgError.classList.replace('d-none', 'd-block');
+    } else {
+        msgError.classList.replace('d-block', 'd-none');
+        const primerParrafo = contenido.querySelector('p');
+        if (primerParrafo) {
+            primerParrafo.textContent = nuevoTexto;
+        }
+    }
+});
 
 /* ===================================================
    TODO: Ejercicio 5 – Lista de tareas (To-Do List)
    =================================================== */
 
 // TODO: 1. Seleccionar elementos: input (#tareaInput), botones (#btn-tarea, #btn-borrar-completadas), lista (#listaTareas)
-
+const tareaInput = document.getElementById('tareaInput');
+const btnAñadirTarea = document.getElementById('btn-tarea');
+const btnBorrarCompletadas = document.getElementById('btn-borrar-completadas');
+const listaTareas = document.getElementById('listaTareas');
 // TODO: 2. Función para añadir tarea
 //         - Obtener texto del input
 //         - Si no está vacío: crear <li>, añadir texto, agregar evento click para toggle clase 'completada'
 //         - Limpiar input y enfocar
-
+btnAñadirTarea.addEventListener('click', function añadirTarea() {
+    const textoTarea = tareaInput.value.trim();
+    if (textoTarea !== '') {
+        const nuevaTarea = document.createElement('li');
+        nuevaTarea.textContent = textoTarea;
+        nuevaTarea.addEventListener('click', function () {
+            nuevaTarea.classList.toggle('completada');
+        });
+        listaTareas.appendChild(nuevaTarea);
+        tareaInput.value = '';
+    }
+});
 // TODO: 3. Función para borrar tareas completadas
 //         - Buscar todos los <li> con clase 'completada'
 //         - Eliminar cada uno de la lista
 
-
+btnBorrarCompletadas.addEventListener('click', function borrarCompletadas(){
+    const tareasCompletadas = listaTareas.querySelectorAll('li.completada');
+    tareasCompletadas.forEach(tarea => {
+        listaTareas.removeChild(tarea);
+    }) 
+});
 /* ===================================================
    CONSEJOS PARA LOS ALUMNOS:
    
