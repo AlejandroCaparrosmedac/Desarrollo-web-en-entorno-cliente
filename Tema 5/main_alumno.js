@@ -112,6 +112,7 @@ btnCambiar.addEventListener('click', function cambiarTexto() {
     const nuevoTexto = inputNuevoTexto.value.trim();
     if (nuevoTexto === '') {
         msgError.classList.replace('d-none', 'd-block');
+        inputNuevoTexto.focus();
     } else {
         msgError.classList.replace('d-block', 'd-none');
         const primerParrafo = contenido.querySelector('p');
