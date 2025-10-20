@@ -13,16 +13,16 @@
     <link href="custom.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container my-5">
         <h1 class="display-4 text-primary mb-4">Tema 5 - Manipulación del DOM</h1>
 
         <!-- Ejercicio 1 - EJEMPLO COMPLETADO -->
-        <div id="ej1" class="card mb-5">
-            <div class="card-header">
+        <div id="ej1" class="card mb-5 border-dark">
+            <div class="card-header text-warning bg-secondary">
                 <h2 class="card-title h4 mb-0">Ejercicio 1 - Selectores y modificación</h2>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-light">
                 <div id="contenido" class="mb-3">
                     <p class="mb-2">Primer párrafo de ejemplo.</p>
                     <p class="mb-2">Segundo párrafo de ejemplo.</p>
@@ -40,12 +40,12 @@
         - Usar los IDs: btn-add y btn-remove
         - La card debe tener el ID: ej2
         -->
-        <div id="ej2" class="card mb-5">
-            <div class="card-header">
+        <div id="ej2" class="card mb-5 border-warning">
+            <div class="card-header text-warning bg-secondary">
                 <h2 class="card-title h4 mb-0">Ejercicio 2 - Crear y eliminar nodos</h2>
             </div>
             <div class="card-body">
-                <button id="btn-add" class="btn btn-primary">Añadir párrafo</button>
+                <button id="btn-add" class="btn btn-warning">Añadir párrafo</button>
                 <button id="btn-remove" class="btn btn-danger">Eliminar último párrafo</button>
             </div>
         </div>
@@ -56,8 +56,8 @@
         - Solo necesita texto explicativo, sin botones
         - La card debe tener el ID: ej3
         -->
-        <div id="ej3" class="card mb-5">
-            <div class="card-header">
+        <div id="ej3" class="card mb-5 border-primary">
+            <div class="card-header text-warning bg-secondary">
                 <h2 class="card-title h4 mb-0">Ejercicio 3 - Manejo de eventos</h2>
             </div>
             <div class="card-body">
@@ -72,8 +72,8 @@
         - Incluir mensaje de error oculto (id="msg-ej4") con clases "text-danger d-none"
         - La card debe tener el ID: ej4
         -->
-        <div id="ej4" class="card mb-5">
-            <div class="card-header">
+        <div id="ej4" class="card mb-5 border-success">
+            <div class="card-header text-warning bg-secondary">
                 <h2 class="card-title h4 mb-0">Ejercicio 4 - Inputs y actualización dinámica</h2>
             </div>
             <div class="card-body">
@@ -81,9 +81,10 @@
                     <label for="nuevoTexto" class="form-label">Nuevo texto para el primer párrafo:</label>
                     <input type="text" id="nuevoTexto" class="form-control" />
                 </div>
-                <button id="btn-cambiar" class="btn btn-primary">Cambiar texto</button>
+                <button id="btn-cambiar" class="btn btn-success">Cambiar texto</button>
                 <p id="msg-ej4" class="text-danger d-none mt-2">Error: El campo no puede estar vacío.</p>
             </div>
+        </div>
             <!-- TODO: Ejercicio 5 - Lista dinámica -->
             <!-- 
         INSTRUCCIONES PARA EL ALUMNO:
@@ -92,8 +93,8 @@
         - Incluir una lista vacía (id="listaTareas") con clases "list-unstyled border rounded p-3"
         - La card debe tener el ID: ej5
         -->
-        <div id="ej5" class="card mb-5">
-            <div class="card-header">
+        <div id="ej5" class="card mb-5 border-danger">
+            <div class="card-header text-warning bg-secondary">
                 <h2 class="card-title h4 mb-0">Ejercicio 5 - Lista dinámica</h2>
             </div>
             <div class="card-body">
@@ -101,7 +102,7 @@
                     <label for="tareaInput" class="form-label">Nueva tarea:</label>
                     <input type="text" id="tareaInput" class="form-control" />
                 </div>
-                <button id="btn-tarea" class="btn btn-primary me-2">Añadir tarea</button>
+                <button id="btn-tarea" class="btn btn-warning me-2">Añadir tarea</button>
                 <button id="btn-borrar-completadas" class="btn btn-danger">Borrar completadas</button>
                 <ul id="listaTareas" class="list-unstyled border rounded p-3 mt-3"></ul>
             </div>

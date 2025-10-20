@@ -16,8 +16,8 @@ const contenido = document.getElementById('contenido');
 const btnEj1 = document.getElementById('btn-ej1');
 
 // 2. Añadimos el evento click al botón
+// Cambiar el texto del primer párrafo
 btnEj1.addEventListener('click', function () {
-    // Cambiar el texto del primer párrafo
     const primerParrafo = contenido.querySelector('p');
     primerParrafo.textContent = 'Este texto ha sido modificado con JavaScript';
 
@@ -151,11 +151,11 @@ btnAñadirTarea.addEventListener('click', function añadirTarea() {
 //         - Buscar todos los <li> con clase 'completada'
 //         - Eliminar cada uno de la lista
 
-btnBorrarCompletadas.addEventListener('click', function borrarCompletadas(){
+btnBorrarCompletadas.addEventListener('click', function borrarCompletadas() {
     const tareasCompletadas = listaTareas.querySelectorAll('li.completada');
     tareasCompletadas.forEach(tarea => {
         listaTareas.removeChild(tarea);
-    }) 
+    })
 });
 /* ===================================================
    CONSEJOS PARA LOS ALUMNOS:
