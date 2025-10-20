@@ -118,6 +118,8 @@ btnCambiar.addEventListener('click', function cambiarTexto() {
         const primerParrafo = contenido.querySelector('p');
         if (primerParrafo) {
             primerParrafo.textContent = nuevoTexto;
+            inputNuevoTexto.value = '';
+            inputNuevoTexto.focus();
         }
     }
 });
@@ -145,6 +147,7 @@ btnAñadirTarea.addEventListener('click', function añadirTarea() {
         });
         listaTareas.appendChild(nuevaTarea);
         tareaInput.value = '';
+        tareaInput.focus();
     }
 });
 // TODO: 3. Función para borrar tareas completadas
