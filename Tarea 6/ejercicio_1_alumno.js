@@ -30,17 +30,23 @@ function ejercicio1() {
     // - mostrarInfo: function() que retorne HTML con toda la información
 
     var estudiante = {
+        nombre: "María",
+        apellidos: "García López",
+        edad: 20,
+        curso: "2º DAW",
         // TODO: Completar las propiedades del objeto
 
         mostrarInfo: function () {
             // TODO: Retornar HTML con la información del estudiante
             // Sugerencia: usar template strings o concatenación
-            return ""; // Cambiar esta línea
+            return `Nombre: ${this.nombre}<br>Apellidos: ${this.apellidos}<br>Edad: ${this.edad}<br>Curso: ${this.curso}`; // Cambiar esta línea
         }
     };
 
     // TODO: Mostrar el resultado en el DOM
     // Pista: usar document.getElementById("resultado-ej1").innerHTML = estudiante.mostrarInfo();
+    document.getElementById("resultado-ej1").innerHTML = estudiante.mostrarInfo();
+
 }
 
 // ===================================
@@ -49,18 +55,30 @@ function ejercicio1() {
 
 // Variable global para el array de colores
 var colores = ["rojo", "azul", "verde"];
-
+var contadorColor = colores.length - 1;
 function agregarColor() {
     // TODO: Obtener el valor del input con id "color-input"
     // TODO: Agregar el color al array usando push()
     // TODO: Limpiar el input
     // TODO: Mostrar mensaje de confirmación
+    var colorInput = document.getElementById("color-input");
+    colores.push(colorInput.value);
+    document.getElementById("resultado-ej2").innerHTML = "<div class = 'alert alert-success'>Color agregado: " + colorInput.value + "</div>"
+    colorInput.value = '';
+    contadorColor++;
 }
 
 function eliminarUltimoColor() {
     // TODO: Eliminar el último elemento del array usando pop()
     // TODO: Mostrar mensaje indicando qué color se eliminó
     // TODO: Si el array está vacío, mostrar mensaje apropiado
+    var colorBorrado = colores.pop();
+    if (contadorColor >= 0) {
+        document.getElementById("resultado-ej2").innerHTML = "<div class = 'alert alert-success'>Color borrado: " + colorBorrado + "</div>"
+        contadorColor--;
+    } else {
+        document.getElementById("resultado-ej2").innerHTML = "<div class = 'alert alert-danger'>No hay elementos en el array</div>"
+    }
 }
 
 function mostrarColores() {
@@ -69,6 +87,9 @@ function mostrarColores() {
     // Sugerencia: usar un bucle for para crear la lista
 
     var html = "<h5>Lista de Colores:</h5><ul>";
+    colores.forEach(function (element) {
+        html += "<li>" + element + "</li>";
+    });
     // TODO: Completar el bucle para mostrar los colores
     html += "</ul>";
 
@@ -85,8 +106,17 @@ function cargarProductos() {
     // TODO: Crear array con al menos 5 objetos producto
     // Cada producto debe tener: nombre, precio, categoria
     productos = [
+
+        { nombre: "Smartphone", precio: 499, categoria: "Electrónicos" },
+        { nombre: "Silla ergonómica", precio: 149, categoria: "Muebles" },
+        { nombre: "Auriculares inalámbricos", precio: 89, categoria: "Accesorios" },
+        { nombre: "Cafetera automática", precio: 199, categoria: "Electrodomésticos" },
+        { nombre: "Monitor 27 pulgadas", precio: 39, categoria: "Electrónicos" }
+
+
         // TODO: Completar con objetos producto
         // Ejemplo: { nombre: "Laptop", precio: 899, categoria: "Electrónicos" }
+
     ];
 
     mostrarProductos(productos);
@@ -95,15 +125,23 @@ function cargarProductos() {
 function ordenarPorPrecio() {
     // TODO: Ordenar el array productos por precio de menor a mayor
     // Pista: usar el método sort() con función comparadora
-
+    productos.sort(function(a,b) {
+        return a.precio - b.precio;
+    });
     mostrarProductos(productos);
 }
 
 function filtrarProductosCaros() {
     // TODO: Filtrar productos con precio mayor a 50€
     // Pista: usar el método filter()
-
+    
     var productosCaros = []; // TODO: Implementar el filtro
+    productos.forEach(function(element){
+        if( element.precio > 50){
+            productosCaros.push(element);
+        }
+    });
+    console.log(productosCaros);
     mostrarProductos(productosCaros);
 }
 
@@ -111,9 +149,14 @@ function mostrarProductos(arrayProductos) {
     // TODO: Mostrar los productos en formato HTML
     // Crear tarjetas o lista con nombre, precio y categoría
 
-    var html = "";
+    var html = "<h5>Lista de productos</h5>";
+    html += "<div class = 'row'>";
+    productos.forEach(function(element){
+        html += "<div class = 'card' style='width: 18rem;' >";
+        html += "<div class='card-body'>" + "Nombre: " + element.nombre + "<br> Precio: " + element.precio + "<br> Categoría: " + element.categoria + "</div></div>";
+    });
     // TODO: Recorrer el array y crear HTML para cada producto
-
+    html += "</div>";
     document.getElementById("resultado-ej3").innerHTML = html;
 }
 
