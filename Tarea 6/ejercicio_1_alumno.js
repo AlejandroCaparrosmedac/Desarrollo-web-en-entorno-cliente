@@ -125,7 +125,7 @@ function cargarProductos() {
 function ordenarPorPrecio() {
     // TODO: Ordenar el array productos por precio de menor a mayor
     // Pista: usar el método sort() con función comparadora
-    productos.sort(function(a,b) {
+    productos.sort(function (a, b) {
         return a.precio - b.precio;
     });
     mostrarProductos(productos);
@@ -134,14 +134,13 @@ function ordenarPorPrecio() {
 function filtrarProductosCaros() {
     // TODO: Filtrar productos con precio mayor a 50€
     // Pista: usar el método filter()
-    
+
     var productosCaros = []; // TODO: Implementar el filtro
-    productos.forEach(function(element){
-        if( element.precio > 50){
+    productos.forEach(function (element) {
+        if (element.precio > 50) {
             productosCaros.push(element);
         }
     });
-    console.log(productosCaros);
     mostrarProductos(productosCaros);
 }
 
@@ -151,7 +150,7 @@ function mostrarProductos(arrayProductos) {
 
     var html = "<h5>Lista de productos</h5>";
     html += "<div class = 'row'>";
-    productos.forEach(function(element){
+    arrayProductos.forEach(function (element) {
         html += "<div class = 'card' style='width: 18rem;' >";
         html += "<div class='card-body'>" + "Nombre: " + element.nombre + "<br> Precio: " + element.precio + "<br> Categoría: " + element.categoria + "</div></div>";
     });
@@ -172,6 +171,17 @@ var estudianteNotas = {
         // TODO: Validar que la nota esté entre 0 y 10
         // TODO: Agregar la nota al array de notas
         // TODO: Mostrar mensaje de confirmación
+        var nota = document.getElementById("nota-input");
+        this.notas.push(nota.value);
+        console.log(this.notas);
+        document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>Juan putero</div>";
+        console.log(nota);
+        if(nota.value >= 0 && nota.value <= 10){
+            document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>" + nota.value + "</div>";
+            this.notas.push(nota.value);
+        }else{
+            document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>Valor introducido no válido</div>";
+        }
     },
 
     calcularPromedio: function () {
