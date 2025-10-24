@@ -171,15 +171,11 @@ var estudianteNotas = {
         // TODO: Validar que la nota esté entre 0 y 10
         // TODO: Agregar la nota al array de notas
         // TODO: Mostrar mensaje de confirmación
-        var nota = document.getElementById("nota-input");
-        this.notas.push(nota.value);
-        console.log(this.notas);
-        document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>Juan putero</div>";
-        console.log(nota);
-        if(nota.value >= 0 && nota.value <= 10){
-            document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>" + nota.value + "</div>";
-            this.notas.push(nota.value);
-        }else{
+        if (nota >= 0 && nota <= 10) {
+            this.notas.push(nota);
+            document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-success'>Nota añadida</div>";
+            console.log(this.notas);
+        } else {
             document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>Valor introducido no válido</div>";
         }
     },
@@ -188,13 +184,20 @@ var estudianteNotas = {
         // TODO: Calcular el promedio de todas las notas
         // TODO: Retornar el promedio redondeado a 2 decimales
         // Pista: usar reduce() o un bucle for
-        return 0; // Cambiar esta línea
+        var suma = this.notas.reduce((acumulador, siguienteValor) => acumulador + siguienteValor, 0);
+        var promedio = suma / this.notas.length;
+        promedio.toFixed(2);
+        return promedio; // Cambiar esta línea
     },
 
     mostrarNotas: function () {
         // TODO: Retornar HTML con todas las notas
         // TODO: Incluir el promedio si hay notas
-        return ""; // Cambiar esta línea
+        var html = "<h5>Notas de " + this.nombre + ":</h5><ul>";
+        this.notas.forEach(function (element) {
+            html += "<li>" + element + "</li>";
+        })
+        return html; // Cambiar esta línea
     }
 };
 
@@ -204,16 +207,26 @@ function agregarNota() {
     // TODO: Llamar al método agregarNota del objeto
     // TODO: Limpiar el input
     // TODO: Actualizar la visualización
+
+    var notaInput = document.getElementById("nota-input");
+    var nota = Number(notaInput.value);
+    estudianteNotas.agregarNota(nota);
+    notaInput.value = '';
+    
+
 }
 
 function calcularPromedio() {
     // TODO: Llamar al método calcularPromedio
     // TODO: Mostrar el resultado en el DOM
+    document.getElementById("resultado-ej4").innerHTML= "<div>El promedio es: " + estudianteNotas.calcularPromedio() + "</div>";
 }
 
 function mostrarNotasEstudiante() {
     // TODO: Llamar al método mostrarNotas
     // TODO: Mostrar el resultado en el DOM
+    document.getElementById('resultado-ej4').innerHTML = estudianteNotas.mostrarNotas();
+
 }
 
 // ===================================
