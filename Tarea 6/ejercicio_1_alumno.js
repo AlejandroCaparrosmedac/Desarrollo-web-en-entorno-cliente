@@ -135,12 +135,10 @@ function filtrarProductosCaros() {
     // TODO: Filtrar productos con precio mayor a 50€
     // Pista: usar el método filter()
 
-    var productosCaros = []; // TODO: Implementar el filtro
-    productos.forEach(function (element) {
-        if (element.precio > 50) {
-            productosCaros.push(element);
-        }
-    });
+    var productosCaros = productos.filter(function (element) {
+        return element.precio > 50;
+    }); // TODO: Implementar el filtro
+
     mostrarProductos(productosCaros);
 }
 
@@ -173,9 +171,15 @@ var estudianteNotas = {
         // TODO: Mostrar mensaje de confirmación
         if (nota >= 0 && nota <= 10) {
             this.notas.push(nota);
-            document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-success'>Nota añadida</div>";
-            console.log(this.notas);
+            var html = "<div class='alert alert-success'>Nota añadida</div>";
+            html += "<h5>Notas de " + this.nombre + ":</h5><ul>";
+            this.notas.forEach(function (element) {
+                html += "<li>" + element + "</li>";
+            })
+            html += "</ul>";
+            document.getElementById("resultado-ej4").innerHTML = html;
         } else {
+            console.log(this.notas)
             document.getElementById("resultado-ej4").innerHTML = "<div class='alert alert-danger'>Valor introducido no válido</div>";
         }
     },
@@ -193,10 +197,16 @@ var estudianteNotas = {
     mostrarNotas: function () {
         // TODO: Retornar HTML con todas las notas
         // TODO: Incluir el promedio si hay notas
-        var html = "<h5>Notas de " + this.nombre + ":</h5><ul>";
-        this.notas.forEach(function (element) {
-            html += "<li>" + element + "</li>";
-        })
+        if (this.notas[0]) {
+            var html = "<h5>Notas de " + this.nombre + ":</h5><ul>";
+            this.notas.forEach(function (element) {
+                html += "<li>" + element + "</li>";
+            })
+            html += "</ul>";
+            html += "<p>El promedio es: " + estudianteNotas.calcularPromedio() + "<p>";
+        } else {
+            html = "No hay notas";
+        }
         return html; // Cambiar esta línea
     }
 };
@@ -209,17 +219,22 @@ function agregarNota() {
     // TODO: Actualizar la visualización
 
     var notaInput = document.getElementById("nota-input");
-    var nota = Number(notaInput.value);
+    var nota = parseFloat(notaInput.value);
     estudianteNotas.agregarNota(nota);
     notaInput.value = '';
-    
+
+
 
 }
 
 function calcularPromedio() {
     // TODO: Llamar al método calcularPromedio
     // TODO: Mostrar el resultado en el DOM
-    document.getElementById("resultado-ej4").innerHTML= "<div>El promedio es: " + estudianteNotas.calcularPromedio() + "</div>";
+    if (this.notas[0]) {
+        document.getElementById("resultado-ej4").innerHTML = "<div>El promedio es: " + estudianteNotas.calcularPromedio() + "</div>";
+    } else {
+        document.getElementById("resultado-ej4").innerHTML = "<div>No ha notas para calcular el promedio</div>";
+    }
 }
 
 function mostrarNotasEstudiante() {
@@ -239,7 +254,12 @@ function cargarEmpleados() {
     // TODO: Crear array con al menos 6 objetos empleado
     // Cada empleado: nombre, departamento, salario, antiguedad
     empleados = [
-        // TODO: Completar con datos de empleados
+        { nombre: "Laura Gómez", departamento: "Recursos Humanos", salario: 2800, antiguedad: 5 },
+        { nombre: "Carlos Pérez", departamento: "Desarrollo", salario: 3500, antiguedad: 3 },
+        { nombre: "María Rodríguez", departamento: "Marketing", salario: 3000, antiguedad: 4 },
+        { nombre: "Javier López", departamento: "Finanzas", salario: 4000, antiguedad: 7 },
+        { nombre: "Ana Torres", departamento: "Diseño", salario: 3200, antiguedad: 2 },
+        { nombre: "Diego Fernández", departamento: "Soporte Técnico", salario: 2900, antiguedad: 6 }
     ];
 
     mostrarEmpleados(empleados);
@@ -250,16 +270,22 @@ function buscarPorDepartamento() {
     // TODO: Filtrar empleados por departamento
     // TODO: Mostrar los resultados
 
-    var departamento = ""; // TODO: Obtener del input
-    var empleadosDepto = []; // TODO: Implementar filtro
-
-    mostrarEmpleados(empleadosDepto);
+    var departamento = document.getElementById("departamento-input"); // TODO: Obtener del input
+    var empleadosDepto = empleados.filter(function (element) {
+        return element.departamento.toLowerCase() === departamento.value.toLowerCase();
+    }); // TODO: Implementar el filtro
+    if (empleadosDepto.length > 0) {
+        mostrarEmpleados(empleadosDepto);
+    } else {
+        document.getElementById("resultado-ej5").innerHTML = "<div class ='alert alert-danger'>No hay ningún departamento con ese nombre</div>"
+    }
 }
 
 function filtrarSalarioAlto() {
     // TODO: Filtrar empleados con salario > 3000€
-    var empleadosAltoSalario = []; // TODO: Implementar filtro
-
+    var empleadosAltoSalario = empleados.filter(function (element) {
+        return element.salario > 3000;
+    }); // TODO: Implementar el filtro
     mostrarEmpleados(empleadosAltoSalario);
 }
 
@@ -267,7 +293,10 @@ function mostrarEmpleados(arrayEmpleados) {
     // TODO: Mostrar empleados en formato HTML
     // Incluir nombre, departamento, salario
 
-    var html = "";
+    var html = "<h5> Empleados </h5>";
+    arrayEmpleados.forEach(function (elemento) {
+        html += "<div class='card'>" + "Nombre: " + elemento.nombre + "<br> Departamento: " + elemento.departamento + "<br> Salario: " + elemento.salario + "</div>";
+    });
     // TODO: Crear HTML para cada empleado
 
     document.getElementById("resultado-ej5").innerHTML = html;
@@ -292,18 +321,38 @@ function eliminarDelMedio() {
     // TODO: Usar splice para eliminar elementos del medio
     // TODO: Mostrar qué elementos se eliminaron
     // TODO: Mostrar el array resultante
+    var eliminados = ciudades.splice(2, 2);
+    var html = "<h5>Ciudades eliminadas:</h5>" + eliminados.join(", ");
+    html += "<h5>Ciudades restantes:</h5>" + ciudades.join(", ");
+    document.getElementById("resultado-ej6").innerHTML = html;
 }
 
 function extraerConSlice() {
     // TODO: Usar slice para extraer una porción del array
     // TODO: Mostrar la porción extraída
     // TODO: Mostrar que el array original no se modifica
+    var extraida = ciudades.slice(2, 4);
+    var html = "<h5>Ciudades extraidas:</h5>" + extraida.join(', ');
+    html += "<h5>Ciudades originales:</h5>" + ciudades.join(', ');
+    document.getElementById("resultado-ej6").innerHTML = html;
+
 }
 
 function buscarMadrid() {
     // TODO: Usar find() para buscar "Madrid"
     // TODO: Usar indexOf() para encontrar su posición
     // TODO: Mostrar los resultados
+    var encontrada = ciudades.find(function (element) {
+        return element === "Madrid";
+    });
+    var posicion = ciudades.indexOf("Madrid");
+    if (encontrada) {
+        var html = "<h5>Ciudad encontrada:</h5>" + encontrada;
+        html += "<h5>Posición en el array:</h5>" + posicion;
+        document.getElementById("resultado-ej6").innerHTML = html;
+    } else {
+        document.getElementById("resultado-ej6").innerHTML = "<div class='alert alert-danger'>No se ha encontrado la ciudad buscada</div>";
+    }
 }
 
 // ===================================
@@ -315,6 +364,19 @@ function Vehiculo(marca, modelo, año) {
     // TODO: Asignar propiedades usando this
     // TODO: Crear método acelerar() que incremente la velocidad
     // TODO: Crear método mostrarInfo() que retorne información
+    this.marca = marca,
+        this.modelo = modelo,
+        this.año = año,
+        this.velocidad = 0
+
+    this.acelerar = function () {
+        this.velocidad += 20;
+    }
+
+    this.mostrarInfo = function () {
+        var html = "<div class='card my-4'>" + "Marca: " + this.marca + "<br> Modelo: " + this.modelo + "<br> Año: " + this.año + "<br> Velocidad: " + this.velocidad + "</div>";
+        return html;
+    }
 }
 
 var vehiculos = [];
@@ -322,19 +384,28 @@ var vehiculos = [];
 function crearVehiculos() {
     // TODO: Crear varios objetos usando el constructor
     // TODO: Agregar al array vehiculos
+    vehiculos.push(new Vehiculo("Toyota", "Corolla", 2020));
+    vehiculos.push(new Vehiculo("Honda", "Civic", 2019));
+    vehiculos.push(new Vehiculo("Ford", "Mustang", 2021));
 
-    mostrarInfoVehiculos();
 }
 
 function acelerarTodos() {
     // TODO: Llamar al método acelerar() de todos los vehículos
     // TODO: Actualizar la visualización
+    vehiculos.forEach(function (element) {
+        element.acelerar();
+    });
+    mostrarInfoVehiculos();
 }
 
 function mostrarInfoVehiculos() {
     // TODO: Mostrar información de todos los vehículos
-    var html = "";
     // TODO: Recorrer array y mostrar info de cada vehículo
+    var html = "";
+    vehiculos.forEach(function (element) {
+        html += element.mostrarInfo();
+    })
 
     document.getElementById("resultado-ej7").innerHTML = html;
 }
@@ -348,6 +419,12 @@ var matriz = [];
 function crearMatriz() {
     // TODO: Crear matriz 3x3 con números aleatorios
     // Pista: usar bucles anidados y Math.random()
+    for (var i = 0; i < 3; i++) {
+        matriz[i] = [];
+        for (var j = 0; j < 3; j++) {
+            matriz[i][j] = Math.floor(Math.random() * 10) + 1;
+        }
+    }
 
     mostrarMatriz();
 }
@@ -355,6 +432,12 @@ function crearMatriz() {
 function sumarDiagonal() {
     // TODO: Calcular la suma de la diagonal principal
     // TODO: Mostrar el resultado
+    var suma = 0;
+    for (var i = 0; i < 3; i++) {
+        suma += matriz[i][i];
+    }
+    document.getElementById("resultado-ej8").innerHTML +=
+        "<div class='alert alert-success'>Suma diagonal principal: " + suma + "</div>";
 }
 
 function mostrarMatriz() {
@@ -362,7 +445,13 @@ function mostrarMatriz() {
     var html = "<h5>Matriz 3x3:</h5><table class='table table-bordered'>";
 
     // TODO: Crear filas y celdas de la tabla
-
+    for (var i = 0; i < 3; i++) {
+        html += "<tr>";
+        for (var j = 0; j < 3; j++) {
+            html += "<td>" + matriz[i][j] + "</td>";
+        }
+        html += "</tr>";
+    }
     html += "</table>";
     document.getElementById("resultado-ej8").innerHTML = html;
 }
