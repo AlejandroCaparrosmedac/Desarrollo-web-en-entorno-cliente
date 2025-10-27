@@ -464,7 +464,7 @@ var numeros = [];
 
 function crearArrayNumeros() {
     // TODO: Crear array con números del 1 al 10
-    numeros = []; // TODO: Completar
+    numeros = [1,2,3,4,5,6,7,8,9,10]; // TODO: Completar
 
     mostrarArray("Array original", numeros);
 }
@@ -472,21 +472,24 @@ function crearArrayNumeros() {
 function duplicarConMap() {
     // TODO: Usar map() para duplicar todos los números
     var duplicados = []; // TODO: Implementar map
-
+    duplicados = numeros.map(function(element) {
+        return element * 2;
+    });
     mostrarArray("Números duplicados", duplicados);
 }
 
 function filtrarPares() {
     // TODO: Usar filter() para obtener solo números pares
     var pares = []; // TODO: Implementar filter
-
+    pares = numeros.filter(function(element){
+            return element %2 == 0;  
+    })
     mostrarArray("Números pares", pares);
 }
 
 function sumarConReduce() {
     // TODO: Usar reduce() para sumar todos los números
-    var suma = 0; // TODO: Implementar reduce
-
+    var suma = numeros.reduce((acumulador, siguienteValor) => acumulador + siguienteValor, 0); // TODO: Implementar reduce
     document.getElementById("resultado-ej9").innerHTML +=
         "<div class='alert alert-success'>Suma total: " + suma + "</div>";
 }
