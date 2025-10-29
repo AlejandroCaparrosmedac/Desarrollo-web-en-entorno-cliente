@@ -230,7 +230,7 @@ function agregarNota() {
 function calcularPromedio() {
     // TODO: Llamar al método calcularPromedio
     // TODO: Mostrar el resultado en el DOM
-    if (this.notas[0]) {
+    if (estudianteNotas.notas[0]) {
         document.getElementById("resultado-ej4").innerHTML = "<div>El promedio es: " + estudianteNotas.calcularPromedio() + "</div>";
     } else {
         document.getElementById("resultado-ej4").innerHTML = "<div>No ha notas para calcular el promedio</div>";
