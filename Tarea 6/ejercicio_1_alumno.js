@@ -507,31 +507,55 @@ var biblioteca = [];
 
 function agregarLibro() {
     // TODO: Obtener valores de los inputs
-    var titulo = ""; // TODO: Obtener del input
-    var autor = ""; // TODO: Obtener del input
-    var año = 0; // TODO: Obtener y convertir a número
-    var genero = ""; // TODO: Obtener del select
+    var titulo = document.getElementById("libro-titulo"); // TODO: Obtener del input
+    var autor = document.getElementById("libro-autor"); // TODO: Obtener del input
+    var año = document.getElementById("libro-year"); // TODO: Obtener y convertir a número
+    año = parseFloat(año.value);
+    var generoOrigen = document.getElementById("libro-genero"); // TODO: Obtener del select
+    var genero = generoOrigen.options[generoOrigen.selectedIndex].text;
 
     // TODO: Validar que todos los campos estén completos
-
+    if( !titulo.value || !autor.value || isNaN(año) || !genero){
+        document.getElementById("resultado-ej10").innerHTML = "<div class='alert alert-danger'>Complete todos los campos</div>"
+    }
+    
     // TODO: Crear objeto libro y agregarlo a la biblioteca
     var libro = {
-        // TODO: Completar propiedades
+        titulo: titulo.value,
+        autor: autor.value,
+        año: año,
+        genero: genero
     };
 
+    biblioteca.push(libro);
+    
+    
     // TODO: Limpiar los inputs
+    titulo.value = '';
+    autor.value ='';
+    document.getElementById("libro-year").value = '';
+    if(genero){
+        generoOrigen.selectedIndex = 0;
+    }
+
     // TODO: Mostrar mensaje de confirmación
+    document.getElementById("resultado-ej10").innerHTML = "<div class='alert alert-success'>Se ha añadido el libro correctamente</div>";
     // TODO: Actualizar visualización
+    mostrarBiblioteca();
 }
 
 function mostrarBiblioteca() {
     // TODO: Mostrar todos los libros de la biblioteca
+    
     mostrarLibros(biblioteca);
 }
 
 function ordenarPorTitulo() {
     // TODO: Ordenar libros por título alfabéticamente
-    var librosOrdenados = []; // TODO: Implementar sort
+    var librosOrdenados = biblioteca.slice().sort(function(a, b){
+        a.titulo.toLowerCase().localeCompare(b.titulo.toLowerCase())
+    });; // TODO: Implementar sort
+    
 
     mostrarLibros(librosOrdenados);
 }
@@ -539,14 +563,20 @@ function ordenarPorTitulo() {
 function filtrarPorGenero() {
     // TODO: Obtener género seleccionado
     // TODO: Filtrar libros por género
-    var librosFiltrados = []; // TODO: Implementar filter
+    var librosFiltrados = biblioteca.filter(function(element){
+        var generoSelect = document.getElementById("libro-genero");
+        generoSelect = generoSelect.options[generoSelect.selectedIndex].text;
+        return element.genero === generoSelect;
+    }); // TODO: Implementar filter
 
     mostrarLibros(librosFiltrados);
 }
 
 function librosRecientes() {
     // TODO: Filtrar libros publicados después del 2020
-    var recientes = []; // TODO: Implementar filter
+    var recientes = biblioteca.filter(function(element){
+        return element.año > 2020;
+    }); // TODO: Implementar filter
 
     mostrarLibros(recientes);
 }
@@ -559,6 +589,9 @@ function mostrarLibros(arrayLibros) {
         html = "<div class='alert alert-warning'>No hay libros para mostrar</div>";
     } else {
         // TODO: Crear HTML para cada libro
+        arrayLibros.forEach(function (element) {
+            html += "<div class='card my-4'>" + "Título: " + element.titulo + "<br> Autor: " + element.autor + "<br> Año: " + element.año + "<br> Género: " + element.genero + "</div>";
+        });
     }
 
     document.getElementById("resultado-ej10").innerHTML = html;
@@ -616,7 +649,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ejercicio 10
     // TODO: Añadir event listeners para los botones del ejercicio 10
-
+    document.getElementById("btn-agregar-libro").addEventListener("click", agregarLibro);
+    document.getElementById("btn-mostrar-biblioteca").addEventListener("click", mostrarBiblioteca);
+    document.getElementById("btn-filtrar-genero").addEventListener("click", filtrarPorGenero);
+    document.getElementById("btn-ordenar-titulo").addEventListener("click", ordenarPorTitulo);
+    document.getElementById("btn-libros-recientes").addEventListener("click", librosRecientes);
 });
 
 /* ===================================
