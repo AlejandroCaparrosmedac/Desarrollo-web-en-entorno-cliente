@@ -188,7 +188,8 @@ var estudianteNotas = {
         // TODO: Calcular el promedio de todas las notas
         // TODO: Retornar el promedio redondeado a 2 decimales
         // Pista: usar reduce() o un bucle for
-        var suma = this.notas.reduce((acumulador, siguienteValor) => acumulador + siguienteValor, 0);
+        var suma = this.notas.reduce(function(acumulador, siguienteValor){ 
+        return acumulador + siguienteValor}, 0);
         var promedio = suma / this.notas.length;
         promedio.toFixed(2);
         return promedio; // Cambiar esta línea
@@ -388,6 +389,8 @@ function crearVehiculos() {
     vehiculos.push(new Vehiculo("Honda", "Civic", 2019));
     vehiculos.push(new Vehiculo("Ford", "Mustang", 2021));
 
+    document.getElementById("resultado-ej7").innerHTML = "<div class ='alert alert-success'>Se han creado los vehiculos con éxito</div>"
+
 }
 
 function acelerarTodos() {
@@ -426,7 +429,7 @@ function crearMatriz() {
         }
     }
 
-    mostrarMatriz();
+    document.getElementById("resultado-ej8").innerHTML = "<div class = 'alert alert-success'>Se ha creado la matriz con éxito</div>"
 }
 
 function sumarDiagonal() {
@@ -436,7 +439,7 @@ function sumarDiagonal() {
     for (var i = 0; i < 3; i++) {
         suma += matriz[i][i];
     }
-    document.getElementById("resultado-ej8").innerHTML +=
+    document.getElementById("resultado-ej8").innerHTML =
         "<div class='alert alert-success'>Suma diagonal principal: " + suma + "</div>";
 }
 
@@ -489,7 +492,8 @@ function filtrarPares() {
 
 function sumarConReduce() {
     // TODO: Usar reduce() para sumar todos los números
-    var suma = numeros.reduce((acumulador, siguienteValor) => acumulador + siguienteValor, 0); // TODO: Implementar reduce
+    var suma = numeros.reduce(function(acumulador, siguienteValor){ 
+        return acumulador + siguienteValor}, 0); // TODO: Implementar reduce
     document.getElementById("resultado-ej9").innerHTML +=
         "<div class='alert alert-success'>Suma total: " + suma + "</div>";
 }
@@ -539,9 +543,9 @@ function agregarLibro() {
     }
 
     // TODO: Mostrar mensaje de confirmación
-    document.getElementById("resultado-ej10").innerHTML = "<div class='alert alert-success'>Se ha añadido el libro correctamente</div>";
+    var alert = "<div class='alert alert-success'>Se ha añadido el libro correctamente</div>";
     // TODO: Actualizar visualización
-    mostrarBiblioteca();
+    mostrarLibros(biblioteca,alert);
 }
 
 function mostrarBiblioteca() {
@@ -581,7 +585,7 @@ function librosRecientes() {
     mostrarLibros(recientes);
 }
 
-function mostrarLibros(arrayLibros) {
+function mostrarLibros(arrayLibros, alert="") {
     // TODO: Mostrar libros en formato de tarjetas HTML
     var html = "";
 
@@ -608,7 +612,7 @@ function mostrarLibros(arrayLibros) {
 }
 
 
-    document.getElementById("resultado-ej10").innerHTML = html;
+    document.getElementById("resultado-ej10").innerHTML = alert + html;
 }
 
 // ===================================
