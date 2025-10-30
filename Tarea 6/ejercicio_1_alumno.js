@@ -553,7 +553,7 @@ function mostrarBiblioteca() {
 function ordenarPorTitulo() {
     // TODO: Ordenar libros por título alfabéticamente
     var librosOrdenados = biblioteca.slice().sort(function(a, b){
-        a.titulo.toLowerCase().localeCompare(b.titulo.toLowerCase())
+        return a.titulo.toLowerCase().localeCompare(b.titulo.toLowerCase())
     });; // TODO: Implementar sort
     
 
@@ -588,11 +588,25 @@ function mostrarLibros(arrayLibros) {
     if (arrayLibros.length === 0) {
         html = "<div class='alert alert-warning'>No hay libros para mostrar</div>";
     } else {
-        // TODO: Crear HTML para cada libro
-        arrayLibros.forEach(function (element) {
-            html += "<div class='card my-4'>" + "Título: " + element.titulo + "<br> Autor: " + element.autor + "<br> Año: " + element.año + "<br> Género: " + element.genero + "</div>";
-        });
-    }
+    // TODO: Crear HTML para cada libro
+    html += "<div class='row'>";
+    arrayLibros.forEach(function (element) {
+        html += `
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">${element.titulo}</h5>
+                        <p class="card-text"><strong>Autor:</strong> ${element.autor}</p>
+                        <p class="card-text"><strong>Año:</strong> ${element.año}</p>
+                        <p class="card-text"><strong>Género:</strong> ${element.genero}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    html += "</div>";
+}
+
 
     document.getElementById("resultado-ej10").innerHTML = html;
 }
