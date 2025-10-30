@@ -188,8 +188,9 @@ var estudianteNotas = {
         // TODO: Calcular el promedio de todas las notas
         // TODO: Retornar el promedio redondeado a 2 decimales
         // Pista: usar reduce() o un bucle for
-        var suma = this.notas.reduce(function(acumulador, siguienteValor){ 
-        return acumulador + siguienteValor}, 0);
+        var suma = this.notas.reduce(function (acumulador, siguienteValor) {
+            return acumulador + siguienteValor
+        }, 0);
         var promedio = suma / this.notas.length;
         promedio.toFixed(2);
         return promedio; // Cambiar esta línea
@@ -467,7 +468,7 @@ var numeros = [];
 
 function crearArrayNumeros() {
     // TODO: Crear array con números del 1 al 10
-    numeros = [1,2,3,4,5,6,7,8,9,10]; // TODO: Completar
+    numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // TODO: Completar
 
     mostrarArray("Array original", numeros);
 }
@@ -475,7 +476,7 @@ function crearArrayNumeros() {
 function duplicarConMap() {
     // TODO: Usar map() para duplicar todos los números
     var duplicados = []; // TODO: Implementar map
-    duplicados = numeros.map(function(element) {
+    duplicados = numeros.map(function (element) {
         return element * 2;
     });
     mostrarArray("Números duplicados", duplicados);
@@ -484,17 +485,18 @@ function duplicarConMap() {
 function filtrarPares() {
     // TODO: Usar filter() para obtener solo números pares
     var pares = []; // TODO: Implementar filter
-    pares = numeros.filter(function(element){
-            return element %2 == 0;  
+    pares = numeros.filter(function (element) {
+        return element % 2 == 0;
     })
     mostrarArray("Números pares", pares);
 }
 
 function sumarConReduce() {
     // TODO: Usar reduce() para sumar todos los números
-    var suma = numeros.reduce(function(acumulador, siguienteValor){ 
-        return acumulador + siguienteValor}, 0); // TODO: Implementar reduce
-    document.getElementById("resultado-ej9").innerHTML +=
+    var suma = numeros.reduce(function (acumulador, siguienteValor) {
+        return acumulador + siguienteValor
+    }, 0); // TODO: Implementar reduce
+    document.getElementById("resultado-ej9").innerHTML =
         "<div class='alert alert-success'>Suma total: " + suma + "</div>";
 }
 
@@ -508,58 +510,66 @@ function mostrarArray(titulo, array) {
 // ===================================
 
 var biblioteca = [];
-
+var modoEditar = false;
+var libroAEditar = -1;
 function agregarLibro() {
     // TODO: Obtener valores de los inputs
-    var titulo = document.getElementById("libro-titulo"); // TODO: Obtener del input
-    var autor = document.getElementById("libro-autor"); // TODO: Obtener del input
-    var año = document.getElementById("libro-year"); // TODO: Obtener y convertir a número
-    año = parseFloat(año.value);
-    var generoOrigen = document.getElementById("libro-genero"); // TODO: Obtener del select
-    var genero = generoOrigen.options[generoOrigen.selectedIndex].text;
+    var titulo = document.getElementById("libro-titulo").value.trim(); // TODO: Obtener del input
+    var autor = document.getElementById("libro-autor").value.trim(); // TODO: Obtener del input
+    var año = document.getElementById("libro-year").value.trim(); // TODO: Obtener y convertir a número
+    var genero = document.getElementById("libro-genero").value.trim(); // TODO: Obtener del select
+    
 
     // TODO: Validar que todos los campos estén completos
-    if( !titulo.value || !autor.value || isNaN(año) || !genero){
+    if (!titulo || !autor || isNaN(año) || !genero) {
         document.getElementById("resultado-ej10").innerHTML = "<div class='alert alert-danger'>Complete todos los campos</div>"
     }
-    
+    if (modoEditar) {
+        biblioteca[libroAEditar].titulo = titulo;
+        biblioteca[libroAEditar].autor = autor;
+        biblioteca[libroAEditar].año = año;
+        biblioteca[libroAEditar].genero = genero;
+
+        mostrarLibros(biblioteca, "<div class='alert alert-success'>Se ha editado el libro correctamente</div>");
+        modoEditar = false;
+        libroAEditar = -1;
+    } else {
     // TODO: Crear objeto libro y agregarlo a la biblioteca
     var libro = {
-        titulo: titulo.value,
-        autor: autor.value,
+        titulo: titulo,
+        autor: autor,
         año: año,
         genero: genero
     };
 
     biblioteca.push(libro);
-    
-    
+
+
     // TODO: Limpiar los inputs
-    titulo.value = '';
-    autor.value ='';
+    document.getElementById("libro-titulo").value = '';
+    document.getElementById("libro-autor").value = '';
     document.getElementById("libro-year").value = '';
-    if(genero){
-        generoOrigen.selectedIndex = 0;
-    }
+    document.getElementById("libro-genero").value = '';
 
     // TODO: Mostrar mensaje de confirmación
     var alert = "<div class='alert alert-success'>Se ha añadido el libro correctamente</div>";
+}
     // TODO: Actualizar visualización
-    mostrarLibros(biblioteca,alert);
+    mostrarLibros(biblioteca, alert);
 }
 
 function mostrarBiblioteca() {
     // TODO: Mostrar todos los libros de la biblioteca
-    
+
     mostrarLibros(biblioteca);
 }
 
 function ordenarPorTitulo() {
     // TODO: Ordenar libros por título alfabéticamente
-    var librosOrdenados = biblioteca.slice().sort(function(a, b){
+    var librosOrdenados = biblioteca.slice().sort(function (a, b) {
         return a.titulo.toLowerCase().localeCompare(b.titulo.toLowerCase())
     });; // TODO: Implementar sort
-    
+
 
     mostrarLibros(librosOrdenados);
 }
@@ -567,7 +577,7 @@ function ordenarPorTitulo() {
 function filtrarPorGenero() {
     // TODO: Obtener género seleccionado
     // TODO: Filtrar libros por género
-    var librosFiltrados = biblioteca.filter(function(element){
+    var librosFiltrados = biblioteca.filter(function (element) {
         var generoSelect = document.getElementById("libro-genero");
         generoSelect = generoSelect.options[generoSelect.selectedIndex].text;
         return element.genero === generoSelect;
@@ -578,24 +588,54 @@ function filtrarPorGenero() {
 
 function librosRecientes() {
     // TODO: Filtrar libros publicados después del 2020
-    var recientes = biblioteca.filter(function(element){
+    var recientes = biblioteca.filter(function (element) {
         return element.año > 2020;
     }); // TODO: Implementar filter
 
     mostrarLibros(recientes);
 }
 
-function mostrarLibros(arrayLibros, alert="") {
+function eliminarLibro(titulo) {
+    var indice = biblioteca.findIndex(function (element) {
+        return element.titulo === titulo;
+    });
+    if (indice !== -1) {
+        biblioteca.splice(indice, 1);
+        mostrarLibros(biblioteca, "<div class='alert alert-success'>Libro eliminado correctamente</div>");
+    } else {
+        mostrarLibros(biblioteca, "<div class='alert alert-danger'>No se encontró el libro a eliminar</div>");
+    }
+}
+
+function editarLibro(titulo) {
+    var indice = biblioteca.findIndex(function (element) {
+        return element.titulo === titulo;
+    });
+    if (indice !== -1) {
+        document.getElementById("libro-titulo").value = biblioteca[indice].titulo;
+        document.getElementById("libro-autor").value = biblioteca[indice].autor;
+        document.getElementById("libro-year").value = biblioteca[indice].año;
+        document.getElementById("libro-genero").value = biblioteca[indice].genero;
+        modoEditar = true;
+        libroAEditar = indice;
+
+    }
+
+
+
+}
+
+function mostrarLibros(arrayLibros, alert = "") {
     // TODO: Mostrar libros en formato de tarjetas HTML
     var html = "";
 
     if (arrayLibros.length === 0) {
         html = "<div class='alert alert-warning'>No hay libros para mostrar</div>";
     } else {
-    // TODO: Crear HTML para cada libro
-    html += "<div class='row'>";
-    arrayLibros.forEach(function (element) {
-        html += `
+        // TODO: Crear HTML para cada libro
+        html += "<div class='row'>";
+        arrayLibros.forEach(function (element) {
+            html += `
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
                     <div class="card-body">
@@ -603,13 +643,15 @@ function mostrarLibros(arrayLibros, alert="") {
                         <p class="card-text"><strong>Autor:</strong> ${element.autor}</p>
                         <p class="card-text"><strong>Año:</strong> ${element.año}</p>
                         <p class="card-text"><strong>Género:</strong> ${element.genero}</p>
+                        <button class= 'btn btn-danger' onclick = "eliminarLibro('${element.titulo}')">Eliminar</button>
+                        <button class= 'btn btn-warning'onclick = "editarLibro('${element.titulo}')">Editar</button>
                     </div>
                 </div>
             </div>
         `;
-    });
-    html += "</div>";
-}
+        });
+        html += "</div>";
+    }
 
 
     document.getElementById("resultado-ej10").innerHTML = alert + html;
