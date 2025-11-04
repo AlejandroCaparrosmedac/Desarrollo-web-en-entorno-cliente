@@ -104,14 +104,14 @@ function handleCollision(objType) {
     if (objType === 'good') {
         // TODO: El jugador atrapó una calabaza
         // 1. Suma 10 puntos al score
-        score += 10;
+        score += 20;
         // 2. Actualiza el texto que muestra la puntuación
         scoreDisplay.textContent = score;
         // 3. Si los puntos son múltiplo de 50, aumenta la velocidad
         // Pista: usa (score % 50 === 0) para verificar si es múltiplo
-
         if (score % 50 === 0) {
-            gameSpeed += 0.5;
+
+            gameSpeed += 2;
         }   
     } else if (objType === 'bad') {
         // TODO: El jugador tocó un fantasma
@@ -239,7 +239,7 @@ function createFallingObject() {
     obj.className = 'falling-object';
 
     // 70% calabazas (buenas), 30% fantasmas (malos)
-    const isGood = Math.random() < 0.7;
+    const isGood = Math.random() < 0.5;
     obj.textContent = isGood ? '🎃' : '👻';
     obj.dataset.type = isGood ? 'good' : 'bad';
 
@@ -266,7 +266,8 @@ function update() {
     // Actualizar objetos que caen
     for (let i = fallingObjects.length - 1; i >= 0; i--) {
         const obj = fallingObjects[i];
-        obj.y += gameSpeed;
+        var random = Math.random(1,2);
+        obj.y += (gameSpeed * random);
         obj.element.style.top = obj.y + 'px';
 
         // Comprobar colisión (USARÁ TU FUNCIÓN)
