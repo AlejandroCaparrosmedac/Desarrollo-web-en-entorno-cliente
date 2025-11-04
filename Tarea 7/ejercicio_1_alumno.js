@@ -108,7 +108,15 @@ document.getElementById('run-e8').addEventListener('click', function () {
 document.getElementById('run-e9').addEventListener('click', function () {
 
   // TODO: implementar función externa e interna
-
+  function externa(){
+    var contador = 0;
+    contador ++;
+    function interna(){
+      document.getElementById("out-e9").textContent = contador;
+    }
+    interna();
+  }
+  externa();
 });
 
 // Ejercicio 10 - Métodos nativos (plantilla)
