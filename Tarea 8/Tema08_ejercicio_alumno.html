@@ -198,7 +198,7 @@
 						edad: this.edad.value.trim(),
 						politica: this.politica.checked
 					};
-					document.getElementById("bs-msg-ej5").innerHTML =  `<pre>${JSON.stringify(newUser, null, 2)}</pre>`;
+					document.getElementById("bs-msg-ej5").innerHTML =  `<div class='alert alert-success'><pre>${JSON.stringify(newUser, null, 2)}</pre></div>`;
 
 				} else {
 					document.getElementById("bs-msg-ej5").innerHTML = "<div class='alert alert-danger'>La contraseña no coincide</div>"
