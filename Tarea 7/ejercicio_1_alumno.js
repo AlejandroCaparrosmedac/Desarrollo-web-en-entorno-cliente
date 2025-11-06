@@ -112,16 +112,26 @@ document.getElementById('run-e9').addEventListener('click', function () {
     var contador = 0;
     contador ++;
     function interna(){
-      document.getElementById("out-e9").textContent = contador;
+      return contador;
     }
-    interna();
+    return interna();
   }
-  externa();
+  document.getElementById("out-e9").textContent = externa();
 });
 
 // Ejercicio 10 - Métodos nativos (plantilla)
 document.getElementById('run-e10').addEventListener('click', function () {
 
   // TODO: usa los métodos nativos vistos (length, toUpperCase, trim, indexOf, Math.random, Date.now)
+  var textoInput = document.getElementById("a-e10").value;
 
+  var length = textoInput.length;
+  var upperCase = textoInput.toUpperCase();
+  var trim = textoInput.trim();
+  var index = textoInput.indexOf('Mundo');
+  var random = Math.random().toFixed(4);
+  var date = Date.now();
+
+  var resultado = `Length: ${length} || Uppercase: ${upperCase} || Trim: ${trim} || Index: ${index} || Random: ${random} || Date: ${date}`;
+  document.getElementById("out-e10").textContent = resultado;
 });
