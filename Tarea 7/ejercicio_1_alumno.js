@@ -10,7 +10,7 @@ document.getElementById('run-e1').addEventListener('click', function () {
   //   return Math.sqrt(numero);
   // }
   const raizCuadrada = (numero) => Math.sqrt(numero);
-  var res = raizCuadrada(v);
+  let res = raizCuadrada(v);
   if (!isNaN(res)) {
     out.textContent = `Resultado: ${res}`;
   } else {
@@ -36,12 +36,12 @@ document.getElementById('run-e2').addEventListener('click', function () {
 document.getElementById('run-e3').addEventListener('click', function () {
   const suma = new Function('a', 'b', 'return a + b;');
   // TODO: usa new Function para construir y ejecutar una función que sume a y b
-  var a = Number(document.getElementById("a-e3a").value);
-  var b = Number(document.getElementById("a-e3b").value);
-  document.getElementById("out-e3").textContent = suma(a, b);
+  let a = Number(document.getElementById("a-e3a").value);
+  let b = Number(document.getElementById("a-e3b").value);
+  document.getElementById("out-e3").textContent = "El resultado de la suma es: " + suma(a, b);
 });
 
-// Ejercicio 4 - Hoisting con var (plantilla)
+// Ejercicio 4 - Hoisting con let (plantilla)
 document.getElementById('run-e4').addEventListener('click', function () {
   // TODO: reproduce el ejemplo en el código editando esta función.
   muestraMensaje(mensaje);
@@ -69,14 +69,14 @@ document.getElementById('run-e6').addEventListener('click', function () {
   // TODO: define y usa esa función para devolver el resultado
   const dividir = function (a, b) {
     if (b != 0) {
-      return a / b;
+      return "El resultado de la división es: " + a / b;
     } else {
       return "Error, indeterminación k/0";
     }
   };
-  var a = Number(document.getElementById("a-e6a").value);
-  var b = Number(document.getElementById("a-e6b").value);
-  document.getElementById("out-e6").textContent = dividir(a, b);
+  let a = Number(document.getElementById("a-e6a").value);
+  let b = Number(document.getElementById("a-e6b").value);
+  document.getElementById("out-e6").textContent =  dividir(a, b);
 });
 
 // Ejercicio 7 - Función flecha multiplicar (plantilla)
@@ -84,9 +84,9 @@ document.getElementById('run-e7').addEventListener('click', function () {
 
   // TODO: implementa una función flecha multiplicar = 
   const multiplicar = (a, b) => a * b;
-  var a = Number(document.getElementById("a-e7a").value);
-  var b = Number(document.getElementById("a-e7b").value);
-  document.getElementById("out-e7").textContent = multiplicar(a, b);
+  let a = Number(document.getElementById("a-e7a").value);
+  let b = Number(document.getElementById("a-e7b").value);
+  document.getElementById("out-e7").textContent = "El resultado de la multiplicación es: " +  multiplicar(a, b);
 });
 
 // Ejercicio 8 - Parámetros por defecto (plantilla)
@@ -96,7 +96,7 @@ document.getElementById('run-e8').addEventListener('click', function () {
   function saludar(nombre = "Invitado"){
     document.getElementById("out-e8").textContent = `Hola, ${nombre}`
   }
-  var nombre = document.getElementById("a-e8").value;
+  let nombre = document.getElementById("a-e8").value;
   if(nombre === ''){
     saludar();
   }else{
@@ -104,12 +104,13 @@ document.getElementById('run-e8').addEventListener('click', function () {
   }
 });
 
+let contador = 0;
 // Ejercicio 9 - Funciones anidadas (plantilla)
 document.getElementById('run-e9').addEventListener('click', function () {
 
   // TODO: implementar función externa e interna
   function externa(){
-    var contador = 0;
+    
     contador ++;
     function interna(){
       return contador;
@@ -123,15 +124,20 @@ document.getElementById('run-e9').addEventListener('click', function () {
 document.getElementById('run-e10').addEventListener('click', function () {
 
   // TODO: usa los métodos nativos vistos (length, toUpperCase, trim, indexOf, Math.random, Date.now)
-  var textoInput = document.getElementById("a-e10").value;
+  let textoInput = document.getElementById("a-e10").value;
 
-  var length = textoInput.length;
-  var upperCase = textoInput.toUpperCase();
-  var trim = textoInput.trim();
-  var index = textoInput.indexOf('Mundo');
-  var random = Math.random().toFixed(4);
-  var date = Date.now();
+  let length = textoInput.length;
+  let upperCase = textoInput.toUpperCase();
+  let trim = textoInput.trim();
+  let index = textoInput.indexOf('Mundo');
+  let random = Math.random().toFixed(4);
+  let date = Date(Date.now().toLocaleString());
 
-  var resultado = `Length: ${length} || Uppercase: ${upperCase} || Trim: ${trim} || Index: ${index} || Random: ${random} || Date: ${date}`;
-  document.getElementById("out-e10").textContent = resultado;
+  let resultado = `Length: ${length}<br>
+  Uppercase: ${upperCase} <br> 
+  Trim: ${trim} <br> 
+  Index: ${index} <br> 
+  Random: ${random} <br> 
+  Date: ${date}`;
+  document.getElementById("out-e10").innerHTML = resultado;
 });
