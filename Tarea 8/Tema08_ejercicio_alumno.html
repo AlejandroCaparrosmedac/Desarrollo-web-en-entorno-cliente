@@ -153,10 +153,8 @@
 
 				if (usuario === '' || password === '') {
 					document.getElementById("bs-msg-ej1").innerHTML = "<div class='alert alert-danger'>Rellena todos los campos.</div>"
-
 				} else {
 					document.getElementById("bs-msg-ej1").innerHTML = "<div class = 'alert alert-success'>Enviado con éxito</div>"
-
 				}
 			});
 
@@ -164,13 +162,11 @@
 			document.getElementById("bs-form-ej2").addEventListener("submit", function (e) {
 				e.preventDefault();
 				document.getElementById("bs-msg-ej2").innerHTML = "<div class = 'alert alert-success'>Enviado con éxito</div>"
-				return;
 			});
 			// EJ3
 			document.getElementById("bs-form-ej3").addEventListener("submit", function (e) {
 				e.preventDefault();
 				document.getElementById("bs-msg-ej3").innerHTML = "<div class = 'alert alert-success'>Enviado con éxito</div>"
-				return;
 			});
 			// EJ4
 			document.getElementById("bs-form-ej4").addEventListener("submit", function (e) {
@@ -180,7 +176,6 @@
 
 				if (password === secure) {
 					document.getElementById("bs-msg-ej4").innerHTML = "<div class = 'alert alert-success'>Enviado con éxito</div>"
-
 				} else {
 					document.getElementById("bs-msg-ej4").innerHTML = "<div class='alert alert-danger'>La contraseña no coincide</div>"
 				}
@@ -199,7 +194,6 @@
 						politica: this.politica.checked
 					};
 					document.getElementById("bs-msg-ej5").innerHTML = `<div class='alert alert-success'><pre>${JSON.stringify(newUser, null, 2)}</pre></div>`;
-
 				} else {
 					document.getElementById("bs-msg-ej5").innerHTML = "<div class='alert alert-danger'>La contraseña no coincide</div>"
 				}
