@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Tarea 9</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="container pgit">
+            <h1 class="mb-4">Tema 9</h1>
+            <div class="card">
+                <div class="card-header">Formulario</div>
+                <div class="card-body">
+                    <form id="bs-form-ej" class="row g-3" novalidate>
+                        <div class="col-md-12">
+                            <label class="form-label">Nombre de Usuario</label>
+                            <input class="form-control" type="text" name="usuario" id="usuario"
+                                onfocus="mostrarSmall('usuario')" onblur="ocultarSmall('usuario')"
+                                oninput="validacionInput('usuario')">
+                            <small id="small-usuario" class="text-muted"></small><br>
+                            <small id="valida-usuario"></small>
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Correo electrónico</label>
+                            <input class="form-control" type="email" name="email" id="email" onfocus="mostrarSmall('email')"
+                                onblur="ocultarSmall('email') " oninput="validacionInput('email')">
+                            <small id="small-email" class="text-muted"></small><br>
+                            <small id="valida-email"></small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Contraseña</label>
+                            <input class="form-control" type="password" name="clave" id="pass" onfocus="mostrarSmall('pass')"
+                                onblur="ocultarSmall('pass')" oninput="validacionInput('pass')">
+                            <small id="small-pass" class="text-muted"></small><br>
+                            <small id="valida-pass"></small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">Edad</label>
+                            <input class="form-control" type="text" name="edad" id="edad" onfocus="mostrarSmall('edad')"
+                                onblur="ocultarSmall('edad')" oninput="validacionInput('edad')">
+                            <small id="small-edad" class="text-muted"></small><br>
+                            <small id="valida-edad"></small>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="checkbox" id="recordar" name="recordar" required>
+                            <label for="politica">Recordarme</label>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-danger" onclick="eliminarCookie()">Eliminar cookie</button>
+                        </div>
+                    </form>
+                    <div id="bs-msg-ej1" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script>
+        function mostrarSmall(campo) {
+            const mensaje = {
+                usuario: "Introduce solo letras y espacios.",
+                email: "Debe ser un correo electrónico válido.",
+                pass: "Mín. 8 caracteres, 1 mayúscula, 1 número y 1 símbolo.",
+                edad: "Introduce solo números."
+            };
+            document.getElementById("small-" + campo).textContent = mensaje[campo];
+        };
+
+        function ocultarSmall(campo) {
+            document.getElementById("small-" + campo).textContent = "";
+        };
+
+        function validacionInput(campo) {
+            const input = document.getElementById(campo);
+            const small = document.getElementById("valida-" + campo);
+            const contenido = document.getElementById(campo).value.trim();
+            const patron = {
+                usuario: /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                pass: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*?_=+]).{8,}$/,
+                edad: /^\d+$/
+            };
+            
+                console.log(campo);
+                
+                if (contenido === "") {
+                    input.classList.remove("border-success");
+                    input.classList.remove("border-danger");
+                    small.textContent="";
+
+                } else if (!patron[campo].test(contenido)) {
+                    input.classList.remove("border-success");
+                    input.classList.add("border-danger");
+                    small.classList.remove("text-success");
+                    small.classList.add("text-danger");
+                    small.innerHTML = "Formato incorrecto";
+                    
+                } else {
+                    input.classList.remove("border-danger");
+                    input.classList.add("border-success");
+                    small.classList.remove("text-danger");
+                    small.classList.add("text-success");
+                    small.textContent = "Correcto";
+                    
+                }
+            
+        };
+    </script>
+</body>
+
+</html>
