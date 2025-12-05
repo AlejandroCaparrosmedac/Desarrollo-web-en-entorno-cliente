@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-md-12">
                             <label class="form-label">Contraseña</label>
-                            <input class="form-control" type="password" name="clave" id="pass" onfocus="mostrarSmall('pass')"
+                            <input class="form-control" type="password" name="pass" id="pass" onfocus="mostrarSmall('pass')"
                                 onblur="ocultarSmall('pass')" oninput="validacionInput('pass')">
                             <small id="small-pass" class="text-muted"></small><br>
                             <small id="valida-pass"></small>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-md-12">
                             <input type="checkbox" id="recordar" name="recordar" required>
-                            <label for="politica">Recordarme</label>
+                            <label for="politica">Recordarme (guardar cookie con el nombre)</label>
                         </div>
                         <div class="col-md-2">
                             <button class="btn btn-primary" type="submit">Enviar</button>
@@ -64,7 +64,7 @@
                             <button class="btn btn-danger" onclick="eliminarCookie()">Eliminar cookie</button>
                         </div>
                     </form>
-                    <div id="bs-msg-ej1" class="mt-2"></div>
+                    <div id="bs-msg-ej" class="mt-2"></div>
                 </div>
             </div>
         </div>
@@ -81,6 +81,24 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script>
+        window.addEventListener("load", function (e){
+            
+                
+            const cookie = document.cookie.split("; ").reduce((cuenta, cookie) =>{
+                const [name, value] = cookie.split("=");
+                cuenta[name] = value;
+                return cuenta;
+                
+            },{});
+
+            if(cookie.username){
+                const nombre = decodeURIComponent(cookie.username);
+                alert("Bienvenido de nuevo, " + nombre);
+                 document.getElementById("usuario").value = nombre;
+                
+                
+            };
+        });
         function mostrarSmall(campo) {
             const mensaje = {
                 usuario: "Introduce solo letras y espacios.",
@@ -105,7 +123,7 @@
                 pass: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*?_=+]).{8,}$/,
                 edad: /^\d+$/
             };
-            
+                console.log(contenido);
                 console.log(campo);
                 
                 if (contenido === "") {
@@ -119,16 +137,47 @@
                     small.classList.remove("text-success");
                     small.classList.add("text-danger");
                     small.innerHTML = "Formato incorrecto";
-                    
+                    return false;
                 } else {
                     input.classList.remove("border-danger");
                     input.classList.add("border-success");
                     small.classList.remove("text-danger");
                     small.classList.add("text-success");
                     small.textContent = "Correcto";
-                    
+                    return true;
                 }
             
+        };
+        document.getElementById("bs-form-ej").addEventListener("submit", function(e){
+            e.preventDefault();
+            const nombre = this.usuario;
+            const email = this.email;
+            const pass = this.pass;
+            const edad = this.edad;
+            const recordar = this.recordar.checked;
+
+            const validaName = validacionInput('usuario');
+            const validaEmail = validacionInput('email');
+            const validaPass = validacionInput('pass');
+            const validaEdad = validacionInput('edad');
+
+            if(validaName && validaEmail && validaEdad && validaPass){
+                document.getElementById("bs-msg-ej").innerHTML = "<div class = 'alert alert-success'>Formulario enviado correctamente.</div>"
+                if(recordar){
+                    document.cookie = "username=" + encodeURIComponent(nombre.value.trim()) + "; max-age=" + 7 * 24 * 60 * 60;
+                    console.log("Cookie creada con éxito" + document.cookie);
+                    
+                };
+                this.submit();
+            }else{
+                alert("Corrige los errores del formulario");
+                return;
+            };
+        });
+        function eliminarCookie(){
+            document.cookie = "username=; max-age=0";
+            console.log("Cookie eliminada");
+            alert("Cookie eliminada");
         };
     </script>
 </body>
