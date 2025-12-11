@@ -38,11 +38,7 @@
                         <button class="btn btn-primary w-100" type="submit">Iniciar sesión</button>
                     </div>
                     <div class="mt-3 text-center">
-                        <p class="text-muted small">
-                            <strong>Credenciales de prueba:</strong><br>
-                            Usuario: <code>test@medac.es</code><br>
-                            Contraseña: <code>1234</code>
-                        </p>
+                        <p class="text-muted small"><strong>Credenciales de prueba:</strong><br>Usuario: <code>test@medac.es</code><br>Contraseña: <code>1234</code></p>
                     </div>
                 </form>
                 <div id="alert-container"></div>
@@ -54,10 +50,7 @@
     <script>
         function mostrarAlert(mensaje, type) {
             const container = document.getElementById("alert-container");
-            container.innerHTML = `
-        <div class="alert alert-${type}">
-            ${mensaje}
-        </div>`;
+            container.innerHTML = `<div class="alert alert-${type}">${mensaje}</div>`;
         }
 
         function promesaLoginFalsa(email, password) {
@@ -67,10 +60,8 @@
                 setTimeout(() => {
                     if (email === "test@medac.es" && password === "1234") {
                         resolve("Login correcto");
-                        
                     } else {
                         reject("Credenciales incorrectas");
-                        
                     }
                 }, delay);
             });
