@@ -12,7 +12,7 @@
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container mt-5" style="max-width: 480px;">
         <div class="card">
             <div class="card-header">
                 <h2 class="text-center mb-4">Iniciar sesión</h2>
@@ -38,7 +38,8 @@
                         <button class="btn btn-primary w-100" type="submit">Iniciar sesión</button>
                     </div>
                     <div class="mt-3 text-center">
-                        <p class="text-muted small"><strong>Credenciales de prueba:</strong><br>Usuario: <code>test@medac.es</code><br>Contraseña: <code>1234</code></p>
+                        <p class="text-muted small"><strong>Credenciales de prueba:</strong><br>Usuario:
+                            <code>test@medac.es</code><br>Contraseña: <code>1234</code></p>
                     </div>
                 </form>
                 <div id="alert-container"></div>
@@ -48,55 +49,57 @@
 
 
     <script>
-        function mostrarAlert(mensaje, type) {
-            const container = document.getElementById("alert-container");
-            container.innerHTML = `<div class="alert alert-${type}">${mensaje}</div>`;
-        }
+        window.addEventListener("load", function (e) {
+            function mostrarAlert(mensaje, tipo) {
+                const container = document.getElementById("alert-container");
+                container.innerHTML = `<div class="alert alert-${tipo}">${mensaje}</div>`;
+            }
 
-        function promesaLoginFalsa(email, password) {
-            return new Promise((resolve, reject) => {
-                const delay = Math.random() * 1000 + 1000;
+            function promesaLoginFalsa(email, password) {
+                return new Promise((resolve, reject) => {
+                    const delay = Math.random() * 1000 + 1000;
 
-                setTimeout(() => {
-                    if (email === "test@medac.es" && password === "1234") {
-                        resolve("Login correcto");
-                    } else {
-                        reject("Credenciales incorrectas");
-                    }
-                }, delay);
+                    setTimeout(() => {
+                        if (email === "test@medac.es" && password === "1234") {
+                            resolve("Login correcto");
+                        } else {
+                            reject("Credenciales incorrectas");
+                        }
+                    }, delay);
+                });
+            }
+
+            async function loginServidor(email, password) {
+                try {
+                    const msg = await promesaLoginFalsa(email, password);
+                    mostrarAlert(msg, "success");
+                    spinner.classList.toggle("d-none");
+                } catch (error) {
+                    mostrarAlert(error, "danger");
+                    spinner.classList.toggle("d-none");
+                }
+            }
+
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value.trim();
+                const password = document.getElementById("password").value.trim();
+                const spinner = document.getElementById("spinner");
+
+                if (email === "" || password === "") {
+                    mostrarAlert("Por favor rellene todos los campos.", "danger");
+                    return;
+                }
+
+                spinner.classList.toggle("d-none");
+                mostrarAlert("", "");
+
+                loginServidor(email, password);
+
+
+
             });
-        }
-
-        async function loginServidor(email, password) {
-            try {
-                const msg = await promesaLoginFalsa(email, password);
-                mostrarAlert(msg, "success");
-                spinner.classList.toggle("d-none");
-            } catch (error) {
-                mostrarAlert(error, "danger");
-                spinner.classList.toggle("d-none");
-            }
-        }
-
-        document.getElementById("loginForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const spinner = document.getElementById("spinner");
-
-            if (email === "" || password === "") {
-                mostrarAlert("Por favor rellene todos los campos.", "danger");
-                return;
-            }
-            
-            spinner.classList.toggle("d-none");
-            mostrarAlert("", "");
-
-            loginServidor(email, password);
-            
-            
-            
         });
     </script>
 
