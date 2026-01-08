@@ -273,7 +273,7 @@
         $("#ej1Titulo").text("Titulo cambiado");
         $("#ej1Texto").css("color", "red");
         $("#ej1Texto").addClass("fw-bold");
-        $("#ej1Btn").prop("disable", true).text("Hecho ✅");
+        $("#ej1Btn").prop("disabled", true).text("Hecho ✅");
         $("#ej1Info").text("Se han aplicado los cambios correctamente.");
       });
       // =========================================================
@@ -349,7 +349,7 @@
         const email = $("#ej4Email").val().trim();
         $("#ej4Msg").removeClass().text("");
         if (nombre.length >= 3 && email.length != 0 && email.includes("@")) {
-          $("#ej4Msg").addClass("alert alert-success").text("Formulario enviado correctamente.");
+          $("#ej4Msg").addClass("alert alert-success mt-3").text("Formulario enviado correctamente.");
           $("#ej4Nombre").val("");
           $("#ej4Email").val("");
         } else {
@@ -365,7 +365,7 @@
             listaErrores += "<li>" + error + "</li>";
           });
           listaErrores += "</ul>";
-          $("#ej4Msg").addClass("alert alert-danger").html(listaErrores);
+          $("#ej4Msg").addClass("alert alert-danger mt-3").html(listaErrores);
         };
       });
       // =========================================================
@@ -391,7 +391,7 @@
       //     - Actualiza #ej5Estado con "Estado: ✅ usuarios cargados (N)"
       //     - Habilita el botón de nuevo
       $("#ej5Btn").on("click", function () {
-        $("#ej5Btn").prop("disable", true);
+        $("#ej5Btn").prop("disabled", true);
         $("#ej5Estado").text("Estado: cargando usuarios...");
         $("#ej5Lista").empty();
         setTimeout(function () {
@@ -399,13 +399,13 @@
             $("#ej5Lista").append(`<li class="list-group-item">${usuario.nombre}, ${usuario.edad} años</li>`);
           });
           $("#ej5Estado").text(`Estado: ✅ usuarios cargados (${fakeUsers.length})`);
-          $("#ej5Btn").prop("disable", false);
+          $("#ej5Btn").prop("disabled", false);
         }, 600);
       });
       // TODO: Al pulsar #ej5Clear:
       //  1) Vacía #ej5Lista
       //  2) Actualiza #ej5Estado a "Estado: lista limpiada."
-      $("#ej5Clear").on("click", function(){
+      $("#ej5Clear").on("click", function () {
         $("#ej5Lista").empty();
         $("#ej5Estado").text("Estado: lista limpiada.")
       });
