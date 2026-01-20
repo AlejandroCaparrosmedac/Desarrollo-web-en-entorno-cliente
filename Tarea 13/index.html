@@ -73,7 +73,7 @@
             </div>
             <!-- EJERCICIO 2 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
+                <h2 class="accordion-header" id="h2">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
                         aria-expanded="true" aria-controls="c1">
                         Ejercicio 2 — Funciones tipadas
@@ -115,7 +115,7 @@
             </div>
             <!-- EJERCICIO 3 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
+                <h2 class="accordion-header" id="h3">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
                         aria-expanded="true" aria-controls="c1">
                         Ejercicio 3 — Parámetros opcionales
@@ -154,7 +154,7 @@
             </div>
             <!-- EJERCICIO 4 -->
             <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
+                <h2 class="accordion-header" id="h4">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
                         aria-expanded="true" aria-controls="c1">
                         Ejercicio 4 — Interfaces como tipo
@@ -170,25 +170,201 @@
                             <li>nombre</li>
                             <li>precio</li>
                             <li>Crea una variable de tipo <code>Producto</code> y asígnale un objeto correcto.</li>
-                            <li>Después, intenta asignar un objeto incorrecto para comprobar que TypeScript detecta el error(comenta esa linea)</li>
+                            <li>Después, intenta asignar un objeto incorrecto para comprobar que TypeScript detecta el
+                                error(comenta esa linea)</li>
                         </ul>
 
                         <div class="demo-box">
                             <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
 
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio4()">Aplicar
+                                cambios</button>
+                            <span id="ej4Info" class="ms-2 text-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EJERCICIO 5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h5">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                        aria-expanded="true" aria-controls="c1">
+                        Ejercicio 5 — Tipos básicos
+                    </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                    data-bs-parent="#accEjercicios">
+                    <div class="accordion-body">
+                        <h3 class="h6">Enunciado</h3>
+                        <ul>
+                            <li>Crea un array con al menos tres productos.</li>
+                            <li>Recorre el array y muestra por consola el nombre y el precio de cada producto.</li>
+                            <li>Calcula y muestra el precio total de todos los productos.</li>
+                        </ul>
+
+                        <div class="demo-box">
+                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
+
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio5()">Aplicar
+                                cambios</button>
+                            <span id="ej5Info" class="ms-2 text-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EJERCICIO 6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                        aria-expanded="true" aria-controls="c1">
+                        Ejercicio 6 — Parámetros opcionales
+                    </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                    data-bs-parent="#accEjercicios">
+                    <div class="accordion-body">
+                        <h3 class="h6">Enunciado</h3>
+                        <ul>
+                            <li>Una propiedad <code>nombre</code> pública.</li>
+                            <li>Una propiedad <code>edad</code> privada.</li>
+                            <li>Un constructor que inicialice ambas propiedaes.</li>
+                            <li>Un método <code>presentarse</code> que muestre un mensaje con el nombre y la edad.</li>
+                            <li>Crea un objeto de la clase y:</li>
+                            <li>Llama al método <code>presentarse</code>.</li>
+                            <li>Intenta acceder a la propiedad privada desde fuera de la clase y observa el resultado.
+                            </li>
+                        </ul>
+
+                        <div class="demo-box">
+                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
+
+
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio6()">Aplicar
+                                cambios</button>
+                            <span id="ej6Info" class="ms-2 text-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EJERCICIO 7 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                        aria-expanded="true" aria-controls="c1">
+                        Ejercicio 7 — Tipos básicos
+                    </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                    data-bs-parent="#accEjercicios">
+                    <div class="accordion-body">
+                        <h3 class="h6">Enunciado</h3>
+                        <ul>
+                            <li>Define una interfaz <code>Empleado</code> con:</li>
+                            <li>id</li>
+                            <li>nombre.</li>
+                            <li>sueldoMensual</li>
+                            <li>Crea una clase <code>EmpleadoEmpresa</code> que implemente la interfaz y que incluya un
+                                método para calcular el sueldo anual.</li>
+                            <li>Crea un objeto de la clase y muestra el sueldo anual por consola.</li>
+                        </ul>
+
+                        <div class="demo-box">
+                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
+
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio7()">Aplicar
                                 cambios</button>
                             <span id="ej1Info" class="ms-2 text-secondary"></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- EJERCICIO 1 -->
+            <!-- EJERCICIO 8 -->
             <div class="accordion-item">
                 <h2 class="accordion-header" id="h1">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
                         aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
+                        Ejercicio 8 — Tipos básicos
+                    </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                    data-bs-parent="#accEjercicios">
+                    <div class="accordion-body">
+                        <h3 class="h6">Enunciado</h3>
+                        <ul>
+                            <li>Crea una función que:</li>
+                            <li>Reciba un número.</li>
+                            <li>Lance un error si el número es negativo.</li>
+                            <li>Devuelva el doble del número si es válido.</li>
+                            <li>Llama a la función dentro de un bloque <code>try / catch</code> y muestra un mensaje de
+                                error adecuado en caso de fallo.</li>
+                        </ul>
+
+                        <div class="demo-box">
+                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
+                            <form class="d-flex">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Introduzca un valor</label>
+                                        <input type="number" name="ejercicio8" id="ejercicio8" class="form-control"
+                                            placeholder="" aria-describedby="helpId" />
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio8()">Aplicar
+                                cambios</button>
+                            <span id="ej1Info" class="ms-2 text-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EJERCICIO 9 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                        aria-expanded="true" aria-controls="c1">
+                        Ejercicio 9 — Tipos básicos
+                    </button>
+                </h2>
+                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
+                    data-bs-parent="#accEjercicios">
+                    <div class="accordion-body">
+                        <h3 class="h6">Enunciado</h3>
+                        <ul>
+                            <li>Crea una función que reciba un parámetro de tipo <code>unknown</code> y:</li>
+                            <li>Compruebe si es un texto.</li>
+                            <li>Si lo es, lo convierta en mayúsculas y lo devuelva.</li>
+                            <li>Si no lo es, lance un error.</li>
+                            <li>Controla el error utilizando <code>try / catch</code>.</li>
+                        </ul>
+
+                        <div class="demo-box">
+                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
+                            <form class="d-flex">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Inline Form</label>
+                                        <input type="text" name="ejercicio9" id="ejercicio9" class="form-control" placeholder=""
+                                            aria-describedby="helpId" />
+                                        <small id="helpId" class="text-muted">Help text</small>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <button id="ej1Btn" class="btn btn-primary" onclick="ejercicio9()">Aplicar
+                                cambios</button>
+                            <span id="ej9Info" class="ms-2 text-secondary"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- EJERCICIO 10 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="h10">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
+                        aria-expanded="true" aria-controls="c1">
+                        Ejercicio 10 — Tipos básicos
                     </button>
                 </h2>
                 <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
@@ -214,193 +390,7 @@
                     </div>
                 </div>
             </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 3 — Parámetros opcionales
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
 
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
-
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
-
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
-
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
-
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- EJERCICIO 1 -->
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="h1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1"
-                        aria-expanded="true" aria-controls="c1">
-                        Ejercicio 1 — Tipos básicos
-                    </button>
-                </h2>
-                <div id="c1" class="accordion-collapse collapse show" aria-labelledby="h1"
-                    data-bs-parent="#accEjercicios">
-                    <div class="accordion-body">
-                        <h3 class="h6">Enunciado</h3>
-                        <ul>
-                            <li>Declara variables para representar la información del un alumno</li>
-                            <li>Nombre del alumno.</li>
-                            <li>Edad.</li>
-                            <li>Si está matriculado o no.</li>
-                            <li>Lista de notas.</li>
-                            <li>Nombre del centro educativo como constante</li>
-                        </ul>
-
-                        <div class="demo-box">
-                            <h4 id="ej1Titulo" class="h5 mb-2">Título original (Ejercicio 1)</h4>
-
-                            <button id="ej1Btn" class="btn btn-primary" onclick="mostrarDatos()">Aplicar
-                                cambios</button>
-                            <span id="ej1Info" class="ms-2 text-secondary"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
             <footer class="mt-4 text-secondary small">

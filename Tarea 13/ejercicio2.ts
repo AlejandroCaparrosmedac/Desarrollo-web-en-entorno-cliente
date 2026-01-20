@@ -5,6 +5,6 @@ function calcularMedia(a: number, b: number): number {
 function mostrarMedia(): void {
     const a : number = Number((document.getElementById("valor1") as HTMLInputElement).value);
     const b : number = Number((document.getElementById("valor2") as HTMLInputElement).value);
-    const resultado: number = calcularMedia(a, b);
+    const resultado: number = calcularMedia(a, b);//Si al llamar a la función, omitimos alguno de los dos valores, TypeScript nos avisará de que faltan argumentos
     document.getElementById("ej2Info")?.innerHTML="La media es: " + resultado;
 }
