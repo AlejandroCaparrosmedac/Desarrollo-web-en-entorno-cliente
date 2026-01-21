@@ -10,5 +10,5 @@ var productoIncorrecto = {
     precio: "barato"
 };
 function ejercicio4() {
-    (document.getElementById("ej4Info")).innerHTML = "Nombre del producto" + productoCorrecto.nombre;
+    (document.getElementById("ej4Info")).innerHTML = "Nombre del producto " + productoCorrecto.nombre;
 }

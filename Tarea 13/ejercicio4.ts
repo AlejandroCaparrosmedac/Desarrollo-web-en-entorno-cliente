@@ -18,6 +18,6 @@ let productoIncorrecto: Producto = {
 };
 
 function ejercicio4(): void {
-    (document.getElementById("ej4Info")).innerHTML="Nombre del producto" + productoCorrecto.nombre;
+    (document.getElementById("ej4Info")).innerHTML="Nombre del producto " + productoCorrecto.nombre;
 }
 
