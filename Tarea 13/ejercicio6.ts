@@ -27,7 +27,7 @@ class Persona {
 function ejercicio6(): void {
     console.clear();
     // Crear una nueva instancia de Persona
-    const persona = new Persona("Ana", 30);
+    const persona = new Persona("Alejandro", 29);
     // Llamar al método presentarse()
     persona.presentarse();
     // No se puede acceder a persona.edad porque es privada (descomenta causaría error)
