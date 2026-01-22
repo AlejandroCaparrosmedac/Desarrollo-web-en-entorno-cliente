@@ -10,6 +10,7 @@ const productos: Producto[] = [
     { id: 3, nombre: "Monitor 24 pulgadas", precio: 149.99 }
 ];
 function ejercicio5(): void {
+    console.clear();
     let precioTotal: number = 0;
     productos.forEach(producto => {
         console.log(`ID: ${producto.id}, Nombre: ${producto.nombre}, Precio: $${producto.precio}`);

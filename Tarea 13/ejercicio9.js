@@ -10,6 +10,7 @@ function toUpperSeguro(texto) {
     }
 }
 function ejercicio9() {
+    console.clear();
     var inputElement = document.getElementById("ejercicio9");
     var valor = inputElement.value;
     try {

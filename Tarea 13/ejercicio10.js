@@ -11,12 +11,13 @@ var AlumnoApp = /** @class */ (function () {
         return this.media;
     };
     AlumnoApp.prototype.mostrarAlumno = function () {
-        console.log("ID: ".concat(this.id, ", Nombre: ").concat(this.nombre, ", Notas: ").concat(this.notas.join(", "), ", Media: ").concat(this.calcularMedia().toFixed(2)));
-        return "ID: ".concat(this.id, ", Nombre: ").concat(this.nombre, ", Notas: ").concat(this.notas.join(", "), ", Media: ").concat(this.calcularMedia().toFixed(2));
+        console.log("Nombre: ".concat(this.nombre, ", Notas: ").concat(this.notas.join(", "), ", Media: ").concat(this.calcularMedia().toFixed(2)));
+        return "Nombre: ".concat(this.nombre, ", Notas: ").concat(this.notas.join(", "), ", Media: ").concat(this.calcularMedia().toFixed(2));
     };
     return AlumnoApp;
 }());
 function ejercicio10() {
+    console.clear();
     var alumno = [
         new AlumnoApp(1, "Ana Gómez", [8, 9, 7, 9]),
         new AlumnoApp(2, "Luis Pérez", [8, 6, 5, 9]),

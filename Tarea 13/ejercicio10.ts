@@ -24,13 +24,14 @@ class AlumnoApp implements Alumno {
     }
     public mostrarAlumno(): string {
         console.log(
-            `ID: ${this.id}, Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`
+            `Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`
         );
-        return `ID: ${this.id}, Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`;
+        return `Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`;
     }
 }
 
 function ejercicio10(): void {
+    console.clear();
     const alumno: AlumnoApp[] = [
         new AlumnoApp(1, "Ana Gómez", [8, 9, 7, 9]),
         new AlumnoApp(2, "Luis Pérez", [8, 6, 5, 9]),

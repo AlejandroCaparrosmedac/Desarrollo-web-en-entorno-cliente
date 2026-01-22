@@ -18,6 +18,8 @@ let productoCorrecto: Producto = {
 // };
 
 function ejercicio4(): void {
+    console.clear();
+    console.log(`Producto correcto: ${JSON.stringify(productoCorrecto)}`);
     document.getElementById("ej4Info")!.innerHTML = `<div class="alert alert-info" role="alert">` +
         `<p>Producto correcto: ${JSON.stringify(productoCorrecto)}</p>` +
         `</div>`;

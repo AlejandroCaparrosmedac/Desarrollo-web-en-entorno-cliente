@@ -11,6 +11,7 @@ function saludar(nombre) {
     }
 }
 function ejercicio3() {
+    console.clear();
     var nombre = document.getElementById("nombre");
     saludar(nombre.value);
 }

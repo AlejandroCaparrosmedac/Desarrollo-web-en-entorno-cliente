@@ -21,6 +21,7 @@ class EmpleadoEmpresa implements Empleado {
 }
 
 function ejercicio7(): void {
+    console.clear();
     const empleado = new EmpleadoEmpresa();
     console.log(`El sueldo anual es: ${empleado.calcularSueldoAnual()}`);
 }

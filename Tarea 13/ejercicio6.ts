@@ -14,6 +14,7 @@ class Persona {
     }
 }
 function ejercicio6(): void {
+    console.clear();
     const persona = new Persona("Ana", 30);
     persona.presentarse();
     // console.log(`Intentando acceder a la edad: ${persona.edad}`); // Esto dará un error porque 'edad' es privada

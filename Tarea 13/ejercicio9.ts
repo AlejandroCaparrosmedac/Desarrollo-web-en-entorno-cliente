@@ -10,6 +10,7 @@ function toUpperSeguro(texto: unknown): string {
 }
 
 function ejercicio9(): void {
+    console.clear();
     const inputElement = document.getElementById("ejercicio9") as HTMLInputElement;
     const valor: unknown = inputElement.value;
     try {

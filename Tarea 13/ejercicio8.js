@@ -7,6 +7,7 @@ function comprobadorNumero(valor) {
     }
 }
 function ejercicio8() {
+    console.clear();
     var inputElement = document.getElementById("ejercicio8");
     var valor = Number(inputElement.value);
     try {

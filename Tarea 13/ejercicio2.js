@@ -2,6 +2,7 @@ function calcularMedia(a, b) {
     return (a + b) / 2;
 }
 function mostrarMedia() {
+    console.clear();
     var a = Number(document.getElementById("valor1").value);
     var b = Number(document.getElementById("valor2").value);
     var resultado = calcularMedia(a, b); //Si al llamar a la función, omitimos alguno de los dos valores, TypeScript nos avisará de que faltan argumentos

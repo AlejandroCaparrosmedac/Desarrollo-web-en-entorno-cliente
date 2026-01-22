@@ -11,6 +11,7 @@ function saludar(nombre?: string): void {
 }
 
 function ejercicio3(): void {
+    console.clear();
     const nombre = document.getElementById("nombre") as HTMLInputElement;
     saludar(nombre.value);
 }

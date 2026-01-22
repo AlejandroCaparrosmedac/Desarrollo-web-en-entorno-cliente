@@ -4,6 +4,7 @@ var productos = [
     { id: 3, nombre: "Monitor 24 pulgadas", precio: 149.99 }
 ];
 function ejercicio5() {
+    console.clear();
     var precioTotal = 0;
     productos.forEach(function (producto) {
         console.log("ID: ".concat(producto.id, ", Nombre: ").concat(producto.nombre, ", Precio: $").concat(producto.precio));

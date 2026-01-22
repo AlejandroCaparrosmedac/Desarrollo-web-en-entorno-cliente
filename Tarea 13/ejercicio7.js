@@ -10,6 +10,7 @@ var EmpleadoEmpresa = /** @class */ (function () {
     return EmpleadoEmpresa;
 }());
 function ejercicio7() {
+    console.clear();
     var empleado = new EmpleadoEmpresa();
     console.log("El sueldo anual es: ".concat(empleado.calcularSueldoAnual()));
 }
