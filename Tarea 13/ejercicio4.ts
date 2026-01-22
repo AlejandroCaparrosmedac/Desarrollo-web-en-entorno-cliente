@@ -11,13 +11,15 @@ let productoCorrecto: Producto = {
 };
 
 // Da error ya que el id introducido es string y esta inicializado como number, al igual que el precio
-let productoIncorrecto: Producto = {
-    id: "uno",
-    nombre: "Teclado",
-    precio: "barato"
-};
+// let productoIncorrecto: Producto = {
+//     id: "uno",
+//     nombre: "Teclado",
+//     precio: "barato"
+// };
 
 function ejercicio4(): void {
-    (document.getElementById("ej4Info")).innerHTML="Nombre del producto " + productoCorrecto.nombre;
+    document.getElementById("ej4Info")!.innerHTML = `<div class="alert alert-info" role="alert">` +
+        `<p>Producto correcto: ${JSON.stringify(productoCorrecto)}</p>` +
+        `</div>`;
 }
 

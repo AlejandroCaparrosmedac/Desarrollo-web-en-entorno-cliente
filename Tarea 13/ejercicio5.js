@@ -10,5 +10,8 @@ function ejercicio5() {
         precioTotal += producto.precio;
     });
     console.log("Precio total de todos los productos: $".concat(precioTotal.toFixed(2)));
+    document.getElementById("ej5Info").innerHTML = "<div class=\"alert alert-info\" role=\"alert\">" +
+        "<p>Precio total de todos los productos: $".concat(precioTotal.toFixed(2), "</p>") +
+        "</div>";
 }
 ;

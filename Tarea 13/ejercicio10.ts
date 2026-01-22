@@ -22,10 +22,11 @@ class AlumnoApp implements Alumno {
         this.media = suma / this.notas.length;
         return this.media;
     }
-    public mostrarAlumno(): void {
+    public mostrarAlumno(): string {
         console.log(
             `ID: ${this.id}, Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`
         );
+        return `ID: ${this.id}, Nombre: ${this.nombre}, Notas: ${this.notas.join(", ")}, Media: ${this.calcularMedia().toFixed(2)}`;
     }
 }
 
@@ -35,12 +36,18 @@ function ejercicio10(): void {
         new AlumnoApp(2, "Luis Pérez", [8, 6, 5, 9]),
         new AlumnoApp(3, "Marta Rodríguez", [0, 9, 8, 7])
     ];
+    const resultadosDiv = document.getElementById("ej10Info") as HTMLElement;
+    resultadosDiv.classList.add("alert", "alert-info");
+    resultadosDiv.innerHTML = '';
+
     alumno.forEach(a => {
+        resultadosDiv.innerHTML += a.mostrarAlumno() + '<br>';
         a.calcularMedia();
         a.mostrarAlumno();
     });
 
     const mediaGlobal =alumno.reduce((acc, a) => acc + a.media, 0) / alumno.length;
+    resultadosDiv.innerHTML += `<br>Media global de todos los alumnos: ${mediaGlobal.toFixed(2)}`;
     console.log(`Media global de todos los alumnos: ${mediaGlobal.toFixed(2)}`);
 
 }

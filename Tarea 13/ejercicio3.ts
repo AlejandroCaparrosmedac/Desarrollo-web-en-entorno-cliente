@@ -1,12 +1,16 @@
 function saludar(nombre?: string): void {
     if (nombre !== "") {
-        (document.getElementById("ej3Info")).innerHTML = "Hola," + nombre;
+        document.getElementById("ej3Info")!.innerHTML = `<div class="alert alert-info" role="alert">` +
+            `<p>Hola, ${nombre}!</p>` +
+            `</div>`;
     } else {
-        (document.getElementById("ej3Info")).innerHTML = "Hola, invitado";
+        document.getElementById("ej3Info")!.innerHTML = `<div class="alert alert-info" role="alert">` +
+            `<p>Hola, invitado!</p>` +
+            `</div>`;
     }
 }
 
 function ejercicio3(): void {
-    let nombre: string = (document.getElementById("nombre") as HTMLElement).value;
-    saludar(nombre);
+    const nombre = document.getElementById("nombre") as HTMLInputElement;
+    saludar(nombre.value);
 }
