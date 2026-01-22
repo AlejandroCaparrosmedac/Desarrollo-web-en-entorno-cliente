@@ -1,6 +1,6 @@
 function toUpperSeguro(texto: unknown): string {
     if (typeof texto === 'string' && texto !== '') {
-        if(!isNaN(Number(texto))) {
+        if (!isNaN(Number(texto))) {
             throw new Error('El valor proporcionado es un número.');
         }
         return texto.toUpperCase();
