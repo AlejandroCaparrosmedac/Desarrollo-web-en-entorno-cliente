@@ -1,5 +1,5 @@
 function toUpperSeguro(texto) {
-    if (typeof texto === 'string' && texto !== '') {
+    if (typeof texto === 'string' && texto.trim() !== '') {
         if (!isNaN(Number(texto))) {
             throw new Error('El valor proporcionado es un número.');
         }
