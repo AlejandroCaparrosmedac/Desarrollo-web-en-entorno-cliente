@@ -15,7 +15,7 @@ let productoCorrecto: Producto = {
     precio: 19.99
 };
 
-// Ejemplo de uso incorrecto comentado (genera error de tipo)
+
 // let productoIncorrecto: Producto = {
 //     id: "uno",              // ERROR: debe ser number
 //     nombre: "Teclado",
