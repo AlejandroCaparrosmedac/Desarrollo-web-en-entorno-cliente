@@ -26,9 +26,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
                 sessionStorage.setItem("nombreEj3", nombre);
                 sessionStorage.setItem("curso", curso);
-                console.log("Datos guardados");
+                document.getElementById("ej3Info").innerHTML = '<div class="alert alert-success">' + "Datos guardados en sessionStorage.";
+                
             } else {
-                console.log("error");
+                document.getElementById("ej3Info").innerHTML = '<div class="alert alert-danger">' + "Introduzca todos los datos.";
             }
 
         } else {

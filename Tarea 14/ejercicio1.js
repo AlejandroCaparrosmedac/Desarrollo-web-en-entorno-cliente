@@ -1,4 +1,4 @@
-windows.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
 
     function cargarPreferencias() {
         if (typeof (Storage) !== "undefined") {
@@ -12,7 +12,6 @@ windows.addEventListener("DOMContentLoaded", () => {
 
             if (color) {
                 document.getElementById("color").value = color;
-                // Aplicar el color automáticamente al cargar
                 document.body.style.backgroundColor = color;
 
             }
@@ -31,10 +30,9 @@ windows.addEventListener("DOMContentLoaded", () => {
                 localStorage.setItem("color", color);
 
                 document.getElementById("ej1Info").innerHTML = '<div class="alert alert-success">' + "Preferencias guardadas.";
-                console.log("Preferencias guardadas, reinicie para ver los cambios.");
+
             } else {
                 document.getElementById("ej1Info").innerHTML = '<div class="alert alert-danger">' + "Introduzca el nombre.";
-                console.log("Por favor, introduce tu nombre.");
             }
         } else {
             console.log("Web Storage no es soportado en este navegador.");
@@ -48,7 +46,7 @@ windows.addEventListener("DOMContentLoaded", () => {
             localStorage.removeItem("color");
 
             document.getElementById("ej1Info").innerHTML = '<div class="alert alert-danger">' + "Preferencias eliminadas.";
-            console.log("Preferencias eliminadas. Recarga la página para ver los cambios.");
+
         } else {
             console.log("Web Storage no es soportado en este navegador.");
         }

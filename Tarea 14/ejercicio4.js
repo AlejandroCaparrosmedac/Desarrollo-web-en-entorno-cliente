@@ -6,9 +6,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (texto) {
                 localStorage.setItem("textoEj4", texto);
-                console.log("Datos guardados");
+                document.getElementById("ej4Info").innerHTML = '<div class="alert alert-success">' + "Datos guardados en localStorage.";
             } else {
-                console.log("Introduzca texto");
+                document.getElementById("ej4Info").innerHTML = '<div class="alert alert-danger">' + "Introduzca texto para guardar.";
             }
         } else {
             console.log("No soportado por el navegador");
@@ -21,9 +21,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
             if (texto) {
                 sessionStorage.setItem("textoEj4", texto);
-                console.log("Datos temporales guardados");
+                document.getElementById("ej4Info").innerHTML = '<div class="alert alert-success">' + "Datos guardados en sessionStorage.";
             } else {
-                console.log("Introduzca texto");
+                document.getElementById("ej4Info").innerHTML = '<div class="alert alert-danger">' + "Introduzca texto para guardar.";
             }
         } else {
             console.log("No soportado por el navegador");

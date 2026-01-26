@@ -19,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
         if (typeof (Storage) !== "undefined") {
             localStorage.removeItem("visitas");
             document.getElementById("visitas").innerText = "0";
+            document.getElementById("ej2Info").innerHTML = '<div class="alert alert-danger">' + "Contador reiniciado.";
         }
     }
 
