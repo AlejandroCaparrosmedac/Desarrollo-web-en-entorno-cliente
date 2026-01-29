@@ -16,8 +16,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
+    cargarDatosEj3();
     function mostrarDatosEj3() {
+
         if (typeof (Storage) !== "undefined") {
             let nombre = document.getElementById("nombreEj3").value;
             let curso = document.getElementById("curso").value;
@@ -27,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 sessionStorage.setItem("nombreEj3", nombre);
                 sessionStorage.setItem("curso", curso);
                 document.getElementById("ej3Info").innerHTML = '<div class="alert alert-success">' + "Datos guardados en sessionStorage.";
-                
+
             } else {
                 document.getElementById("ej3Info").innerHTML = '<div class="alert alert-danger">' + "Introduzca todos los datos.";
             }

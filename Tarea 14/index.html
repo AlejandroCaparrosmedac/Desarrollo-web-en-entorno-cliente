@@ -78,7 +78,7 @@
 
                             <button id="ej1Btn" class="btn btn-primary my-4">Aplicar
                                 cambios</button>
-                            <button id="restablecer" class="btn btn-danger my-4" >Restablecer
+                            <button id="restablecer" class="btn btn-danger my-4">Restablecer
                                 preferencias</button>
                             <div id="ej1Info" class=""></div>
                         </div>
@@ -137,7 +137,8 @@
                         </ul>
 
                         <div class="demo-box">
-                            <h4 id="ej3Titulo" class="h5 mb-2">Ejercicio 3 — Almacenamiento temporal con sessionStorage</h4>
+                            <h4 id="ej3Titulo" class="h5 mb-2">Ejercicio 3 — Almacenamiento temporal con sessionStorage
+                            </h4>
                             <form class="d-flex">
                                 <div class="col">
                                     <div class="mb-3">
@@ -151,6 +152,12 @@
                             <button id="ej3Btn" class="btn btn-primary my-4">Aplicar
                                 cambios</button>
                             <span id="ej3Info" class=""></span>
+                            <div class="alert alert-info mt-3">
+                                <strong>Explicación:</strong>
+                                <p>A diferencia de localStorage, al hacer uso de sessionStorage, solo guardamos los
+                                    datos durante la sesión, es decir, una vez que se cierra el navegador
+                                    los datos guardados se pierden.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -177,7 +184,8 @@
                         </ul>
 
                         <div class="demo-box">
-                            <h4 id="ej4Titulo" class="h5 mb-2">Ejercicio 4 — Comparativa localStorage vs sessionStorage</h4>
+                            <h4 id="ej4Titulo" class="h5 mb-2">Ejercicio 4 — Comparativa localStorage vs sessionStorage
+                            </h4>
                             <form class="d-flex">
                                 <div class="col">
                                     <div class="mb-3">
@@ -186,9 +194,23 @@
                                     </div>
                                 </div>
                             </form>
-                            <button id="guardarLocal" class="btn btn-primary my-4" >Guardar en localStorage</button>
-                            <button id="guardarSession" class="btn btn-success my-4" >Guardar en sessionStorage</button>
+                            <button id="guardarLocal" class="btn btn-primary my-4">Guardar en localStorage</button>
+                            <button id="guardarSession" class="btn btn-success my-4">Guardar en sessionStorage</button>
                             <span id="ej4Info" class=""></span>
+                            <p><b>Valores locales:</b></p>
+                            <div id="valorLocal"></div>
+                            <br>
+                            <p><b>Valores de sesión</b></p>
+                            <div id="valorSesion"></div>
+                            <div class="alert alert-info mt-3">
+                                <strong>Explicación:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li><strong>Al recargar:</strong> Ambos valores se mantienen</li>
+                                    <li><strong>Al cerrar pestaña:</strong> localStorage se mantiene, sessionStorage se
+                                        borra</li>
+                                    <li><strong>En nueva pestaña:</strong> Solo localStorage está disponible</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,29 +227,29 @@
                     data-bs-parent="#accEjercicios">
                     <div class="accordion-body">
                         <div class="container mt-5">
-    <h3 class="h6">Enunciado</h3>
-                    <ul>
-                        <li>Añadir tareas</li>
-                        <li>Mostrar todas las tareas</li>
-                        <li>Eliminar tareas</li>
-                        <li>Persistencia con <strong>localStorage</strong></li>
-                        <li>Sincronización automática entre pestañas</li>
-                    </ul>
+                            <h3 class="h6">Enunciado</h3>
+                            <ul>
+                                <li>Añadir tareas</li>
+                                <li>Mostrar todas las tareas</li>
+                                <li>Eliminar tareas</li>
+                                <li>Persistencia con <strong>localStorage</strong></li>
+                                <li>Sincronización automática entre pestañas</li>
+                            </ul>
 
-                    <div class="demo-box">
-                        <h4 class="h5 mb-3">Lista de tareas</h4>
+                            <div class="demo-box">
+                                <h4 class="h5 mb-3">Lista de tareas</h4>
 
-                        <div class="mb-3">
-                            <label for="tareaInput" class="form-label">Nueva tarea</label>
-                            <div class="input-group">
-                                <input type="text" id="tareaInput" class="form-control"
-                                    placeholder="Escribe una tarea">
-                                <button class="btn btn-primary" id="btnAgregar">Añadir</button>
+                                <div class="mb-3">
+                                    <label for="tareaInput" class="form-label">Nueva tarea</label>
+                                    <div class="input-group">
+                                        <input type="text" id="tareaInput" class="form-control"
+                                            placeholder="Escribe una tarea">
+                                        <button class="btn btn-primary" id="btnAgregar">Añadir</button>
+                                    </div>
+                                </div>
+
+                                <ul class="list-group" id="listaTareas"></ul>
                             </div>
-                        </div>
-
-                        <ul class="list-group" id="listaTareas"></ul>
-                    </div>
                         </div>
                     </div>
                 </div>
