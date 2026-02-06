@@ -1,7 +1,6 @@
-<!-- Enlaces bootstrap a la pagina de tareas y la de password-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{title}}</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">{{title}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,14 +10,15 @@
           <a class="nav-link" routerLink="/tareas" routerLinkActive="active">Tareas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/password" routerLinkActive="active">Password</a>
+          <a class="nav-link" routerLink="/password" routerLinkActive="active">Generador de contraseñas</a>
         </li>
       </ul>
     </div>
   </div>
-
 </nav>
 
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<main class="py-4">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
