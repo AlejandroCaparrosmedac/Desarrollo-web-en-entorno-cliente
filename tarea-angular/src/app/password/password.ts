@@ -18,10 +18,10 @@ export class Password {
   passwordGenerado: string = '';
   mensajeCopia: string = '';
 
-  private readonly MAYUSCULAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  private readonly MINUSCULAS = 'abcdefghijklmnopqrstuvwxyz';
-  private readonly NUMEROS = '0123456789';
-  private readonly SIMBOLOS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+  private  MAYUSCULAS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  private  MINUSCULAS = 'abcdefghijklmnopqrstuvwxyz';
+  private  NUMEROS = '0123456789';
+  private  SIMBOLOS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
   generarPassword(): void {
     if (!this.incluirMayusculas && !this.incluirMinusculas && !this.incluirNumeros && !this.incluirSimbolos) {

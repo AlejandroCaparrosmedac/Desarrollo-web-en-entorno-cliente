@@ -18,7 +18,7 @@ interface Tarea {
 export class Tareas implements OnInit {
   tareas: Tarea[] = [];
   nuevaTarea: string = '';
-  private readonly STORAGE_KEY = 'tareas-angular';
+  private STORAGE_KEY = 'tareas-tarea-15';
 
   ngOnInit(): void {
     this.cargarTareas();
